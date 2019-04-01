@@ -12,6 +12,8 @@ data class RuleData<T>(val healthInformation: Sykmelding, val metadata: T)
 interface Rule<in T> {
     val name: String
     val ruleId: Int?
+    val messageForSender: String?
+    val messageForUser: String?
     val status: Status
     val predicate: (T) -> Boolean
     operator fun invoke(input: T) = predicate(input)
