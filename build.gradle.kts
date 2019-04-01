@@ -9,7 +9,7 @@ plugins {
 
 allprojects {
     group = "no.nav.syfo.sm"
-    version = "1.0.0"
+    version = "1.0.1"
 
     repositories {
         mavenCentral()
@@ -49,12 +49,6 @@ subprojects {
                 url = uri("https://repo.adeo.no/repository/maven-$releaseType/")
             }
         }
-    }
-}
-
-project(":syfosm-common-networking") {
-    dependencies {
-        implementation(project(":syfosm-common-metrics"))
     }
 }
 
