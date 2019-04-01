@@ -4,6 +4,8 @@ val logbackVersion = "1.2.3"
 val logstashEncoderVersion = "5.1"
 
 dependencies {
+    implementation(project(":syfosm-common-metrics"))
+
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
 
     implementation("io.ktor:ktor-client-cio:$ktorVersion")
