@@ -6,7 +6,7 @@ data class ValidationResult(
 )
 
 data class RuleInfo(
-    val ruleMessage: String,
+    val ruleName: String,
     val messageForSender: String,
     val messageForUser: String
 )
