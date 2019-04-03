@@ -2,10 +2,8 @@ package no.nav.syfo.kafka
 
 import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.apache.kafka.clients.producer.ProducerConfig
-import org.apache.kafka.common.serialization.Deserializer
-import org.apache.kafka.common.serialization.Serializer
-import org.apache.kafka.common.serialization.StringDeserializer
-import org.apache.kafka.common.serialization.StringSerializer
+import org.apache.kafka.common.serialization.*
+import org.apache.kafka.streams.StreamsConfig
 import java.util.Properties
 import kotlin.reflect.KClass
 
@@ -26,6 +24,17 @@ fun loadBaseConfig(env: KafkaConfig, credentials: KafkaCredentials): Properties 
     it["specific.avro.reader"] = true
 }
 
+fun Properties.envOverrides() = apply {
+    putAll(System.getenv()
+        .filter { (key, _) ->
+            key.startsWith("KAFKA_")
+        }
+        .map { (key, value) ->
+            key.substring(6).toLowerCase().replace("_", ".") to value
+        }
+        .toMap())
+}
+
 fun Properties.toConsumerConfig(
     groupId: String,
     valueDeserializer: KClass<out Deserializer<out Any>>,
@@ -35,6 +44,17 @@ fun Properties.toConsumerConfig(
     it[ConsumerConfig.GROUP_ID_CONFIG] = groupId
     it[ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG] = keyDeserializer.java
     it[ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG] = valueDeserializer.java
+}
+
+fun Properties.toStreamsConfig(
+    applicationName: String,
+    valueSerde: KClass<out Serde<out Any>>,
+    keySerde: KClass<out Serde<out Any>> = Serdes.String()::class
+): Properties = Properties().also {
+    it.putAll(this)
+    it[StreamsConfig.APPLICATION_ID_CONFIG] = applicationName
+    it[StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG] = keySerde.java
+    it[StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG] = valueSerde.java
 }
 
 fun Properties.toProducerConfig(
