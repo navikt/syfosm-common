@@ -8,7 +8,7 @@ pipeline {
     }
 
     environment {
-        APPLICATION_NAME = 'syfosmoppgave'
+        APPLICATION_NAME = 'syfosm-common'
         DOCKER_SLUG = 'syfo'
     }
 
