@@ -52,6 +52,9 @@ fun Properties.toStreamsConfig(
     keySerde: KClass<out Serde<out Any>> = Serdes.String()::class
 ): Properties = Properties().also {
     it.putAll(this)
+    // TODO hacky workaround for kafka streams issues
+    it.setProperty("acks" , "1")
+    it.remove("enable.idempotence")
     it[StreamsConfig.APPLICATION_ID_CONFIG] = applicationName
     it[StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG] = keySerde.java
     it[StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG] = valueSerde.java
