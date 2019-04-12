@@ -21,7 +21,8 @@ data class Sykmelding(
     val kontaktMedPasient: KontaktMedPasient,
     val behandletTidspunkt: LocalDateTime,
     val behandler: Behandler,
-    val avsenderSystem: AvsenderSystem
+    val avsenderSystem: AvsenderSystem,
+    val syketilfelleStartDato: LocalDateTime
 )
 
 data class MedisinskVurdering(
