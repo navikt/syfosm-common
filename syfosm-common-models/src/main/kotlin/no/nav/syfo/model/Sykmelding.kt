@@ -22,7 +22,7 @@ data class Sykmelding(
     val behandletTidspunkt: LocalDateTime,
     val behandler: Behandler,
     val avsenderSystem: AvsenderSystem,
-    val syketilfelleStartDato: LocalDate
+    val syketilfelleStartDato: LocalDate?
 )
 
 data class MedisinskVurdering(
