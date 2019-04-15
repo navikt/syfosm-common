@@ -22,7 +22,8 @@ data class Sykmelding(
     val behandletTidspunkt: LocalDateTime,
     val behandler: Behandler,
     val avsenderSystem: AvsenderSystem,
-    val syketilfelleStartDato: LocalDate?
+    val syketilfelleStartDato: LocalDate?,
+    val signaturDato: LocalDateTime
 )
 
 data class MedisinskVurdering(
@@ -137,7 +138,8 @@ data class Behandler(
     val fnr: String,
     val hpr: String?,
     val her: String?,
-    val adresse: Adresse
+    val adresse: Adresse,
+    val tlf: String?
 )
 
 data class Adresse(
