@@ -54,6 +54,8 @@ object Diagnosekoder {
         objectMapper.readValue(jsonResource, inputType.java)
             .map { it.code to it }
             .toMap()
+
+    operator fun contains(oid: String?) = oid == ICPC2_CODE || oid == ICD10_CODE
 }
 
 fun Diagnose.isICPC2(): Boolean = system == Diagnosekoder.ICPC2_CODE
