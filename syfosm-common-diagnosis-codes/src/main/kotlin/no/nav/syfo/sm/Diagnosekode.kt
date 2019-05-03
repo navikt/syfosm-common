@@ -3,10 +3,10 @@ package no.nav.syfo.sm
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
-import com.fasterxml.jackson.module.kotlin.readValue
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import no.nav.syfo.model.Diagnose
 import java.io.InputStream
+import kotlin.reflect.KClass
 
 object Diagnosekoder {
     val objectMapper = ObjectMapper().apply {
@@ -47,11 +47,11 @@ object Diagnosekoder {
         fun toICPC2(): List<ICPC2> = mapsTo.mapNotNull { icpc2[it] }
     }
 
-    val icd10: Map<String, ICD10> = loadCodes(Diagnosekoder::class.java.getResourceAsStream("/icd10.json"))
-    val icpc2: Map<String, ICPC2> = loadCodes(Diagnosekoder::class.java.getResourceAsStream("/icpc2.json"))
+    val icd10 = loadCodes(Diagnosekoder::class.java.getResourceAsStream("/icd10.json"), Array<ICD10>::class)
+    val icpc2 = loadCodes(Diagnosekoder::class.java.getResourceAsStream("/icpc2.json"), Array<ICPC2>::class)
 
-    inline fun <reified T : DiagnosekodeType> loadCodes(jsonResource: InputStream) =
-        objectMapper.readValue<Array<T>>(jsonResource)
+    inline fun <reified T : DiagnosekodeType> loadCodes(jsonResource: InputStream, inputType: KClass<Array<T>>) =
+        objectMapper.readValue(jsonResource, inputType.java)
             .map { it.code to it }
             .toMap()
 }
