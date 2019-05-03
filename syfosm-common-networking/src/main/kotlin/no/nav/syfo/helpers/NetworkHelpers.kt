@@ -13,8 +13,8 @@ val log: Logger = LoggerFactory.getLogger("no.nav.syfo.network-helpers")
 
 suspend inline fun <reified T> retry(
     callName: String,
-    retryIntervals: Array<Long> = arrayOf(500, 1000, 3000, 5000, 10000),
     vararg legalExceptions: KClass<out Throwable> = arrayOf(IOException::class, ConnectException::class),
+    retryIntervals: Array<Long> = arrayOf(500, 1000, 3000, 5000, 10000),
     exceptionCausedByDepth: Int = 3,
     crossinline block: suspend () -> T
 ): T {
