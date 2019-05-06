@@ -12,7 +12,7 @@ plugins {
 
 allprojects {
     group = "no.nav.syfo.sm"
-    version = "1.0.17"
+    version = "1.0.18"
 
     repositories {
         mavenCentral()
