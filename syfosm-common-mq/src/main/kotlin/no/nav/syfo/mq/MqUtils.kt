@@ -6,6 +6,7 @@ import com.ibm.msg.client.wmq.WMQConstants
 import com.ibm.msg.client.wmq.compat.base.internal.MQC
 import javax.jms.MessageConsumer
 import javax.jms.MessageProducer
+import javax.jms.QueueBrowser
 import javax.jms.Session
 
 interface MqConfig {
@@ -28,3 +29,4 @@ fun connectionFactory(config: MqConfig) = MQConnectionFactory().apply {
 
 fun Session.consumerForQueue(queueName: String): MessageConsumer = createConsumer(createQueue(queueName))
 fun Session.producerForQueue(queueName: String): MessageProducer = createProducer(createQueue(queueName))
+fun Session.createBrowserForQueue(queueName: String): QueueBrowser = createBrowser(createQueue(queueName))

@@ -4,7 +4,7 @@ val kluentVersion = "1.49"
 val spekVersion =  "2.0.2"
 
 plugins {
-    kotlin("jvm") version "1.3.30"
+    kotlin("jvm") version "1.3.40"
     java
     `maven-publish`
 }
@@ -12,7 +12,7 @@ plugins {
 
 allprojects {
     group = "no.nav.syfo.sm"
-    version = "1.0.20"
+    version = "1.0.21"
 
     repositories {
         mavenCentral()
