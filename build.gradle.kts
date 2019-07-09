@@ -63,6 +63,11 @@ subprojects {
         archiveClassifier.set("sources")
     }
 
+    tasks.register<Jar>("javadocJar") {
+        from(tasks.javadoc)
+        archiveClassifier.set("javadoc")
+    }
+
     tasks.withType<Test> {
         useJUnitPlatform {
             includeEngines("spek2")
@@ -86,12 +91,18 @@ subprojects {
             create<MavenPublication>("mavenJava") {
                 from(components["java"])
                 artifact(tasks.getByName("sourcesJar"))
+                artifact(tasks.getByName("javadocJar"))
                 pom {
-
                     name.set("SYFO mottak common")
                     description.set("Common functionality used between the syfo mottak apps")
                     url.set("https://github.com/navikt/syfosm-common")
 
+                    developers {
+                        organization {
+                            name.set("NAV (Arbeids- og velferdsdirektoratet) - The Norwegian Labour and Welfare Administration")
+                            url.set("https://www.nav.no/")
+                        }
+                    }
                     licenses {
                         license {
                             name.set("MIT License")
