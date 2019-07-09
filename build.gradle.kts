@@ -53,7 +53,6 @@ subprojects {
     }
 
     signing {
-        //useInMemoryPgpKeys(System.getenv("GPG_KEY_ARMORED"), System.getenv("GPG_PASSPHRASE"))
         useGpgCmd()
         sign(tasks["jar"])
     }
