@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-
+  barkendeploy: navikt/barkendeploy@dev:master
 jobs:
   publish:
     docker:
