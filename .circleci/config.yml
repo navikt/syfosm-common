@@ -10,7 +10,7 @@ jobs:
       - barkendeploy/gradle-cache-restore
       - run:
           name: Build artifact
-          command: ./gradlew build -x test -x signJar
+          command: ./gradlew build -x test
       - run:
           name: Run tests
           command: ./gradlew test
