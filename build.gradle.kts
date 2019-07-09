@@ -97,12 +97,18 @@ subprojects {
                     description.set("Common functionality used between the syfo mottak apps")
                     url.set("https://github.com/navikt/syfosm-common")
 
+                    organization {
+                        name.set("NAV (Arbeids- og velferdsdirektoratet) - The Norwegian Labour and Welfare Administration")
+                        url.set("https://www.nav.no/")
+                    }
+
                     developers {
-                        organization {
-                            name.set("NAV (Arbeids- og velferdsdirektoratet) - The Norwegian Labour and Welfare Administration")
-                            url.set("https://www.nav.no/")
+                        developer {
+                            organization.set("NAV (Arbeids- og velferdsdirektoratet) - The Norwegian Labour and Welfare Administration")
+                            organizationUrl.set("https://www.nav.no/")
                         }
                     }
+
                     licenses {
                         license {
                             name.set("MIT License")
