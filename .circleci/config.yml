@@ -15,11 +15,10 @@ jobs:
           name: Run tests
           command: ./gradlew test
       - run:
-          name: Encode GPG key as armored
-          command: export GPG_KEY_ARMORED=$(echo $GPG_KEY_BASE64 | base64 --decode | gpg --enarmor)
-      - run:
           name: Sign jar
-          command: ./gradlew signJar
+          command: |
+            export GPG_KEY_ARMORED=$(echo $GPG_KEY_BASE64 | base64 --decode | gpg --enarmor)
+            ./gradlew signJar
       - run:
           name: Publish artifacts
           command: ./gradlew publish
