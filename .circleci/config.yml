@@ -1,0 +1,44 @@
+version: 2.1
+orbs:
+
+jobs:
+  publish:
+    docker:
+      - image: "circleci/openjdk:11-jdk"
+    steps:
+      - checkout
+      - barkendeploy/gradle-cache-restore
+      - run:
+          name: Build artifact
+          command: ./gradlew build -x test -x signJar
+      - run:
+          name: Run tests
+          command: ./gradlew test
+      - run:
+          name: Decode GPG key
+          command: echo $GPG_KEY_BASE64 | base64 --decode > /tmp/signing.asc.gpg
+      - run:
+          name: Sign jar
+          command: ./gradlew signJar
+      - run:
+          name: Publish artifacts
+          command: ./gradlew publish
+      - barkendeploy/gradle-cache-persist
+  build:
+    docker:
+      - image: "circleci/openjdk:11-jdk"
+    steps:
+      - checkout
+      - barkendeploy/gradle-cache-restore
+      - run:
+          name: Run tests
+          command: ./gradlew test
+
+workflows:
+  version: 2
+  build_and_publish:
+    jobs:
+      - publish:
+          filters:
+            branches:
+              only: master
