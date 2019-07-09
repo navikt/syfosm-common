@@ -17,7 +17,7 @@ jobs:
       - run:
           name: Sign jar
           command: |
-            export GPG_KEY_ARMORED=$(echo $GPG_KEY_BASE64 | base64 --decode | gpg --enarmor)
+            export GPG_KEY_ARMORED=$(echo $GPG_KEY_BASE64 | base64 --decode)
             ./gradlew signJar --stacktrace
       - run:
           name: Publish artifacts
