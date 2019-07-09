@@ -11,7 +11,7 @@ plugins {
     `maven-publish`
     signing
     id("io.codearte.nexus-staging") version "0.21.0"
-    id("de.marcphilipp.nexus-publish") version "0.2.0"
+    id("de.marcphilipp.nexus-publish") version "0.2.0" apply false
 }
 
 
@@ -32,16 +32,17 @@ nexusStaging {
     password = System.getenv("SONATYPE_PASSWORD")
 }
 
-nexusPublishing {
-    username.set(System.getenv("SONATYPE_USERNAME"))
-    password.set(System.getenv("SONATYPE_PASSWORD"))
-}
-
 subprojects {
     apply(plugin = "kotlin")
     apply(plugin = "java")
     apply(plugin = "maven-publish")
     apply(plugin = "signing")
+    apply(plugin = "de.marcphilipp.nexus-publish")
+
+    nexusPublishing {
+        username.set(System.getenv("SONATYPE_USERNAME"))
+        password.set(System.getenv("SONATYPE_PASSWORD"))
+    }
 
     dependencies {
         implementation(kotlin("stdlib"))
