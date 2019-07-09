@@ -14,15 +14,16 @@ jobs:
       - run:
           name: Run tests
           command: ./gradlew test
+      - barkendeploy/gradle-cache-persist
+      - run:
+          name: Import gpg key
+          command: gpg --yes --batch --import < $(echo $GPG_KEY_BASE64 | base64 --decode)
       - run:
           name: Sign jar
-          command: |
-            export GPG_KEY_ARMORED=$(echo $GPG_KEY_BASE64 | base64 --decode)
-            ./gradlew signJar --stacktrace
+          command: ./gradlew signJar -Psigning.gnupg.keyName=${GPG_KEY_NAME} --stacktrace -Psigning.gnupg.passphrase=${GPG_PASSPHRASE}
       - run:
           name: Publish artifacts
           command: ./gradlew publish
-      - barkendeploy/gradle-cache-persist
   build:
     docker:
       - image: "circleci/openjdk:11-jdk"
