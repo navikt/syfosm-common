@@ -39,6 +39,7 @@ workflows:
   build_and_publish:
     jobs:
       - publish:
+          context: Maven Central Release
           filters:
             branches:
               only: master
