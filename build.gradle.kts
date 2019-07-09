@@ -11,6 +11,7 @@ plugins {
     `maven-publish`
     signing
     id("io.codearte.nexus-staging") version "0.21.0"
+    id("de.marcphilipp.nexus-publish") version "0.2.0"
 }
 
 
@@ -29,6 +30,11 @@ nexusStaging {
     packageGroup = "no.nav"
     username = System.getenv("SONATYPE_USERNAME")
     password = System.getenv("SONATYPE_PASSWORD")
+}
+
+nexusPublishing {
+    username.set(System.getenv("SONATYPE_USERNAME"))
+    password.set(System.getenv("SONATYPE_PASSWORD"))
 }
 
 subprojects {
