@@ -25,12 +25,17 @@ allprojects {
 
 }
 
+nexusStaging {
+    packageGroup = "no.nav"
+    username = System.getenv("SONATYPE_USERNAME")
+    password = System.getenv("SONATYPE_PASSWORD")
+}
+
 subprojects {
     apply(plugin = "kotlin")
     apply(plugin = "java")
     apply(plugin = "maven-publish")
     apply(plugin = "signing")
-    apply(plugin = "io.codearte.nexus-staging")
 
     dependencies {
         implementation(kotlin("stdlib"))
@@ -94,12 +99,6 @@ subprojects {
                 }
             }
         }
-    }
-    
-    nexusStaging {
-        packageGroup = "no.nav"
-        username = System.getenv("SONATYPE_USERNAME")
-        password = System.getenv("SONATYPE_PASSWORD")
     }
 
     signing {
