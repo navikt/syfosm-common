@@ -53,7 +53,7 @@ subprojects {
     }
 
     signing {
-        useInMemoryPgpKeys("/tmp/signing.asc.gpg", System.getenv("GPG_PASSPHRASE"))
+        useInMemoryPgpKeys(System.getenv("GPG_KEY_BASE64"), System.getenv("GPG_PASSPHRASE"))
         sign(tasks["jar"])
     }
 
