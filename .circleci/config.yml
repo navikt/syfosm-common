@@ -19,11 +19,11 @@ jobs:
           name: Import gpg key
           command: echo $GPG_KEY_BASE64 | base64 --decode | gpg --yes --batch --import
       - run:
-          name: Sign jar
-          command: ./gradlew signJar -Psigning.gnupg.keyName=${GPG_KEY_NAME} --stacktrace -Psigning.gnupg.passphrase=${GPG_PASSPHRASE} -Psigning.gnupg.executable=gpg
-      - run:
           name: Publish artifacts
-          command: ./gradlew publish
+          command: ./gradlew publish -Psigning.gnupg.keyName=${GPG_KEY_NAME} --stacktrace -Psigning.gnupg.passphrase=${GPG_PASSPHRASE} -Psigning.gnupg.executable=gpg
+      - run:
+          name: Close and release artifact
+          command: ./gradlew closeAndReleaseRepository
   build:
     docker:
       - image: "circleci/openjdk:11-jdk"

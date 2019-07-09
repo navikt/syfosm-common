@@ -10,6 +10,7 @@ plugins {
     java
     `maven-publish`
     signing
+    id("io.codearte.nexus-staging") version "0.21.0"
 }
 
 
@@ -43,6 +44,11 @@ subprojects {
         kotlinOptions.jvmTarget = "1.8"
     }
 
+    tasks.register<Jar>("sourcesJar") {
+        from(sourceSets.main.get().allJava)
+        archiveClassifier.set("sources")
+    }
+
     tasks.withType<Test> {
         useJUnitPlatform {
             includeEngines("spek2")
@@ -50,11 +56,6 @@ subprojects {
         testLogging {
             showStandardStreams = true
         }
-    }
-
-    signing {
-        useGpgCmd()
-        sign(tasks["jar"])
     }
 
     publishing {
@@ -70,7 +71,7 @@ subprojects {
         publications {
             create<MavenPublication>("mavenJava") {
                 from(components["java"])
-                //artifact(tasks.getByName("sourcesJar"))
+                artifact(tasks.getByName("sourcesJar"))
                 pom {
 
                     name.set("SYFO mottak common")
@@ -92,6 +93,17 @@ subprojects {
                 }
             }
         }
+    }
+    
+    nexusStaging {
+        packageGroup = "no.nav"
+        username = System.getenv("SONATYPE_USERNAME")
+        password = System.getenv("SONATYPE_PASSWORD")
+    }
+
+    signing {
+        useGpgCmd()
+        sign(publishing.publications["mavenJava"])
     }
 
     val generatePomPropertiesForJar by tasks.registering {
