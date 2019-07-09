@@ -30,6 +30,7 @@ subprojects {
     apply(plugin = "java")
     apply(plugin = "maven-publish")
     apply(plugin = "signing")
+    apply(plugin = "io.codearte.nexus-staging")
 
     dependencies {
         implementation(kotlin("stdlib"))
