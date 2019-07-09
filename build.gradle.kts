@@ -1,6 +1,7 @@
 import java.util.Date
 
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import de.marcphilipp.gradle.nexus.NexusPublishExtension
 
 val kluentVersion = "1.49"
 val spekVersion =  "2.0.2"
@@ -39,7 +40,7 @@ subprojects {
     apply(plugin = "signing")
     apply(plugin = "de.marcphilipp.nexus-publish")
 
-    nexusPublishing {
+    configure<NexusPublishExtension> {
         username.set(System.getenv("SONATYPE_USERNAME"))
         password.set(System.getenv("SONATYPE_PASSWORD"))
     }
