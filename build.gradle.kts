@@ -1,4 +1,9 @@
+import java.time.ZoneId
+import java.text.SimpleDateFormat
+import java.io.ByteArrayOutputStream
+import java.nio.charset.StandardCharsets
 import java.util.Date
+import java.util.TimeZone
 
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import de.marcphilipp.gradle.nexus.NexusPublishExtension
@@ -17,14 +22,16 @@ plugins {
 
 
 allprojects {
+    val dateFormat = SimpleDateFormat("yyyy.MM.dd-hh-mm")
+    dateFormat.timeZone = TimeZone.getTimeZone(ZoneId.of("Europe/Oslo"))
+    val gitHash = System.getenv("CIRCLE_SHA1") ?: "local-build"
     group = "no.nav.syfo.sm"
-    version = "1.0.22"
+    version = "${dateFormat.format(Date())}-$gitHash"
 
     repositories {
         mavenCentral()
         jcenter()
     }
-
 }
 
 nexusStaging {
