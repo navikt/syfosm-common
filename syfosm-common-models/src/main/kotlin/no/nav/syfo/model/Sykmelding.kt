@@ -23,7 +23,8 @@ data class Sykmelding(
     val behandler: Behandler,
     val avsenderSystem: AvsenderSystem,
     val syketilfelleStartDato: LocalDate?,
-    val signaturDato: LocalDateTime
+    val signaturDato: LocalDateTime,
+    val navnFastlege: String?
 )
 
 data class MedisinskVurdering(
