@@ -3,7 +3,8 @@ package no.nav.syfo.client
 import io.ktor.client.HttpClient
 import io.ktor.client.call.receive
 import io.ktor.client.engine.cio.CIO
-import io.ktor.client.features.auth.basic.BasicAuth
+import io.ktor.client.features.auth.Auth
+import io.ktor.client.features.auth.providers.basic
 import io.ktor.client.features.json.JacksonSerializer
 import io.ktor.client.features.json.JsonFeature
 import io.ktor.client.request.get
@@ -24,9 +25,11 @@ class StsOidcClient(
         install(JsonFeature) {
             serializer = JacksonSerializer()
         }
-        install(BasicAuth) {
-            this.username = username
-            this.password = password
+        install(Auth) {
+            basic {
+                this.username = username
+                this.password = password
+            }
         }
     }
 

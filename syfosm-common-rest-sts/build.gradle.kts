@@ -7,5 +7,5 @@ repositories {
 dependencies {
     implementation("io.ktor:ktor-client-cio:$ktorVersion")
     implementation("io.ktor:ktor-client-jackson:$ktorVersion")
-    implementation("io.ktor:ktor-client-auth-basic-jvm:$ktorVersion")
+    implementation("io.ktor:ktor-client-auth-jvm:$ktorVersion")
 }
