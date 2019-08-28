@@ -41,9 +41,8 @@ class StsOidcClient(
     }
 
     private suspend fun newOidcToken(): OidcToken =
-    // TODO: Remove this workaround whenever ktor issue #1009 is fixed
             oidcClient.get<HttpResponse>(stsUrl) {
                 parameter("grant_type", "client_credentials")
                 parameter("scope", "openid")
-            }.use { it.call.response.receive() }
+            }.receive()
 }

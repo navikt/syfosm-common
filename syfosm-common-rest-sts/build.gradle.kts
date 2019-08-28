@@ -1,4 +1,4 @@
-val ktorVersion = "1.2.0"
+val ktorVersion = "1.2.3"
 
 repositories {
     maven(url = "https://kotlin.bintray.com/kotlinx")
