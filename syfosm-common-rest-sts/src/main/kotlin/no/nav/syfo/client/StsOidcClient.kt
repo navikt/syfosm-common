@@ -1,7 +1,6 @@
 package no.nav.syfo.client
 
 import io.ktor.client.HttpClient
-import io.ktor.client.call.receive
 import io.ktor.client.engine.cio.CIO
 import io.ktor.client.features.auth.Auth
 import io.ktor.client.features.auth.providers.basic
@@ -9,10 +8,8 @@ import io.ktor.client.features.json.JacksonSerializer
 import io.ktor.client.features.json.JsonFeature
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
-import io.ktor.client.response.HttpResponse
 import io.ktor.util.KtorExperimentalAPI
 import kotlinx.coroutines.runBlocking
-import no.nav.syfo.client.OidcToken
 
 @KtorExperimentalAPI
 class StsOidcClient(
@@ -44,8 +41,8 @@ class StsOidcClient(
     }
 
     private suspend fun newOidcToken(): OidcToken =
-            oidcClient.get<HttpResponse>(stsUrl) {
+            oidcClient.get(stsUrl) {
                 parameter("grant_type", "client_credentials")
                 parameter("scope", "openid")
-            }.receive()
+            }
 }
