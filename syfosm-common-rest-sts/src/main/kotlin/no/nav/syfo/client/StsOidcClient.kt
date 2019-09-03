@@ -26,6 +26,7 @@ class StsOidcClient(
             basic {
                 this.username = username
                 this.password = password
+                this.sendWithoutRequest = true
             }
         }
     }
