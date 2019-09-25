@@ -9,7 +9,7 @@ data class RuleInfo(
     val ruleName: String,
     val messageForSender: String,
     val messageForUser: String,
-    val ruleStatus: String
+    val ruleStatus: Status
 )
 
 enum class Status {
