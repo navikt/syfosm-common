@@ -17,3 +17,9 @@ jobs:
       - name: Run tests
         run: |
           ./gradlew test
+      - name: Import gpg key
+        run: |
+          echo $GPG_KEY_BASE64 | base64 --decode | gpg --yes --batch --import
+      - name: Publish artifacts
+        run: |
+          ./gradlew publish closeAndReleaseRepository -Psigning.gnupg.keyName=${GPG_KEY_NAME} --stacktrace -Psigning.gnupg.passphrase=${GPG_PASSPHRASE} -Psigning.gnupg.executable=gpg
