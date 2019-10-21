@@ -1,13 +1,8 @@
 name: Publish artifacts
-#on:
-#  push:
-#    branches:
-#      - master
 on:
   push:
     branches:
-      - '*'
-      - '!master'
+      - master
 jobs:
   build_and_release:
     runs-on: ubuntu-latest
