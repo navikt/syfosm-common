@@ -16,6 +16,11 @@ plugins {
 allprojects {
     group = "no.nav.helse"
     version = properties["version"] ?: "local-build"
+
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
 }
 
 subprojects {
@@ -23,6 +28,7 @@ subprojects {
 
     repositories {
         mavenCentral()
+        jcenter()
     }
 
     dependencies {
