@@ -41,8 +41,8 @@ publishing {
         create<MavenPublication>("mavenJava") {
 
             pom {
-                name.set("syfoam-common-networking")
-                description.set("Bibliotek for standar nettverksoppsett for sykmeldings domentet")
+                name.set("syfoam-common-rest-sts")
+                description.set("Bibliotek for rest sts oppsett for sykmeldings domentet")
                 url.set("https://github.com/navikt/syfosm-common")
                 licenses {
                     license {

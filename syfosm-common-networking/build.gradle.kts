@@ -35,7 +35,7 @@ subprojects {
 publishing {
     repositories {
         maven {
-            url = uri("https://maven.pkg.github.com/navikt/helse-sykdomstidslinje")
+            url = uri("https://maven.pkg.github.com/navikt/syfosm-common")
             credentials {
                 username = System.getenv("GITHUB_USERNAME")
                 password = System.getenv("GITHUB_PASSWORD")
@@ -46,9 +46,9 @@ publishing {
         create<MavenPublication>("mavenJava") {
 
             pom {
-                name.set("helse-sykdomstidslinje")
-                description.set("Bibliotek for tidslinjer av intervaller relatert til sykefravær")
-                url.set("https://github.com/navikt/helse-sykdomstidslinje")
+                name.set("syfoam-common-networking")
+                description.set("Bibliotek for standar nettverksoppsett for sykmeldings domentet")
+                url.set("https://github.com/navikt/syfosm-common")
                 licenses {
                     license {
                         name.set("MIT License")
@@ -57,9 +57,9 @@ publishing {
                 }
 
                 scm {
-                    connection.set("scm:git:https://github.com/navikt/helse-sykdomstidslinje.git")
-                    developerConnection.set("scm:git:https://github.com/navikt/helse-sykdomstidslinje.git")
-                    url.set("https://github.com/navikt/helse-sykdomstidslinje")
+                    connection.set("scm:git:https://github.com/navikt/syfosm-common.git")
+                    developerConnection.set("scm:git:https://github.com/navikt/syfosm-common.git")
+                    url.set("https://github.com/navikt/syfosm-common")
                 }
             }
             from(components["java"])
