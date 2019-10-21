@@ -3,6 +3,13 @@ val ktorVersion = "1.2.0"
 val logbackVersion = "1.2.3"
 val logstashEncoderVersion = "5.1"
 
+
+plugins {
+    id("java")
+    id("maven-publish")
+    id("org.sonarqube") version "2.7"
+}
+
 dependencies {
     implementation(project(":syfosm-common-metrics"))
 
@@ -14,15 +21,21 @@ dependencies {
     implementation("net.logstash.logback:logstash-logback-encoder:$logstashEncoderVersion")
 }
 
-plugins {
-    id("java")
-    id("maven-publish")
+subprojects {
+    properties["sonarHost"]?.let { host ->
+        sonarqube {
+            properties {
+                property("sonar.sourceEncoding", "UTF-8")
+                property("sonar.host.url", host)
+            }
+        }
+    }
 }
 
 publishing {
     repositories {
         maven {
-            url = uri("https://maven.pkg.github.com/navikt")
+            url = uri("https://maven.pkg.github.com/navikt/helse-sykdomstidslinje")
             credentials {
                 username = System.getenv("GITHUB_USERNAME")
                 password = System.getenv("GITHUB_PASSWORD")
@@ -33,9 +46,9 @@ publishing {
         create<MavenPublication>("mavenJava") {
 
             pom {
-                name.set("github-package-registry-gradle")
-                description.set("A test project for the maven-publish plugin")
-                url.set("https://github.com/navikt/github-package-registry-gradle")
+                name.set("helse-sykdomstidslinje")
+                description.set("Bibliotek for tidslinjer av intervaller relatert til sykefravær")
+                url.set("https://github.com/navikt/helse-sykdomstidslinje")
                 licenses {
                     license {
                         name.set("MIT License")
@@ -44,9 +57,9 @@ publishing {
                 }
 
                 scm {
-                    connection.set("scm:git:https://github.com/navikt/github-package-registry-gradle.git")
-                    developerConnection.set("scm:git:https://github.com/navikt/github-package-registry-gradle.git")
-                    url.set("https://github.com/navikt/github-package-registry-gradle")
+                    connection.set("scm:git:https://github.com/navikt/helse-sykdomstidslinje.git")
+                    developerConnection.set("scm:git:https://github.com/navikt/helse-sykdomstidslinje.git")
+                    url.set("https://github.com/navikt/helse-sykdomstidslinje")
                 }
             }
             from(components["java"])
