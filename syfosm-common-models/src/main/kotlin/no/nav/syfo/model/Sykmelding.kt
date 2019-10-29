@@ -38,7 +38,8 @@ data class MedisinskVurdering(
 
 data class Diagnose(
     val system: String,
-    val kode: String
+    val kode: String,
+    val tekst: String
 )
 
 data class AnnenFraversArsak(
