@@ -13,6 +13,7 @@ object Diagnosekoder {
         registerKotlinModule()
         registerModule(JavaTimeModule())
         configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, true)
+        configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
     }
     const val ICPC2_CODE = "2.16.578.1.12.4.1.1.7170"
     const val ICD10_CODE = "2.16.578.1.12.4.1.1.7110"
