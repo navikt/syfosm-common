@@ -13,7 +13,7 @@ object DiagnosekodeSpek : Spek({
         }
 
         it("Should map from ICPC2 to ICD10") {
-            Diagnosekoder.icpc2["D74"]!!.toICD10() shouldContainAll listOf(Diagnosekoder.icd10["C169"]!!)
+            (Diagnosekoder.icpc2["D74"] ?: error("")).toICD10() shouldContainAll listOf(Diagnosekoder.icd10["C169"] ?: error(""))
         }
     }
 
