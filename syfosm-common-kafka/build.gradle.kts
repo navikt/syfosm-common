@@ -1,4 +1,4 @@
-val kafkaVersion = "2.0.0"
+val kafkaVersion = "2.4.0"
 
 plugins {
     id("java")
@@ -7,7 +7,7 @@ plugins {
 }
 
 dependencies {
-    api("org.apache.kafka:kafka_2.12:$kafkaVersion")
+    api("org.apache.kafka:kafka_2.13:$kafkaVersion")
     api("org.apache.kafka:kafka-streams:$kafkaVersion")
 }
 
