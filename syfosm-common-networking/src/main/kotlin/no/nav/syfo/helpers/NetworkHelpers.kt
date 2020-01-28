@@ -1,5 +1,6 @@
 package no.nav.syfo.helpers
 
+import io.ktor.client.engine.cio.FailToConnectException
 import kotlinx.coroutines.delay
 import net.logstash.logback.argument.StructuredArguments.keyValue
 import no.nav.syfo.metrics.NETWORK_CALL_SUMMARY
@@ -12,7 +13,7 @@ val log: Logger = LoggerFactory.getLogger("no.nav.syfo.network-helpers")
 
 suspend inline fun <reified T> retry(
     callName: String,
-    vararg legalExceptions: KClass<out Throwable> = arrayOf(IOException::class),
+    vararg legalExceptions: KClass<out Throwable> = arrayOf(IOException::class, FailToConnectException::class),
     retryIntervals: Array<Long> = arrayOf(500, 1000, 3000, 5000, 10000),
     exceptionCausedByDepth: Int = 3,
     crossinline block: suspend () -> T
