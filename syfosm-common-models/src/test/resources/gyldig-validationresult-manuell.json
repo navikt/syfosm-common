@@ -1,0 +1,11 @@
+{
+  "status": "MANUAL_PROCESSING",
+  "ruleHits": [
+    {
+      "ruleName": "TILBAKEDATERT_MED_BEGRUNNELSE_FORLENGELSE",
+      "messageForSender": "Sykmeldingen er tilbakedatert og felt 11.2 (begrunnelseIkkeKontakt) er utfylt",
+      "messageForUser": "Sykmeldingen er tilbakedatert og årsak for tilbakedatering er angitt",
+      "ruleStatus": "MANUAL_PROCESSING"
+    }
+  ]
+}

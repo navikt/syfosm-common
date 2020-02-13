@@ -1,0 +1,11 @@
+{
+  "status": "INVALID",
+  "ruleHits": [
+    {
+      "ruleName": "TILBAKEDATERT_MER_ENN_8_DAGER_FORSTE_SYKMELDING",
+      "messageForSender": "Sykmeldingen kan ikke rettes, det må skrives en ny. Pasienten har fått beskjed om å vente på ny sykmelding fra deg.",
+      "messageForUser": "Sykmeldingen er tilbakedatert uten begrunnelse fra den som sykmeldte deg.",
+      "ruleStatus": "INVALID"
+    }
+  ]
+}
