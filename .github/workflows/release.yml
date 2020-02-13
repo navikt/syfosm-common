@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v1
+      - name: Gradle wrapper validation
+        uses: gradle/wrapper-validation-action@v1
       - uses: actions/cache@v1
         with:
           path: ~/.gradle/caches

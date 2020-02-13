@@ -1,0 +1,39 @@
+{
+  "kafkaMetadata": {
+    "sykmeldingId": "b5e84795-43a8-4adb-ac1d-4b2e1e0c5fb7",
+    "timestamp": "2020-01-23T14:46:42.296954Z",
+    "source": "syfoservice"
+  },
+  "event": {
+    "sykmeldingId": "b5e84795-43a8-4adb-ac1d-4b2e1e0c5fb7",
+    "timestamp": "2020-01-23T14:46:42.176929Z",
+    "statusEvent": "BEKREFTET",
+    "arbeidsgiver": null,
+    "sporsmals": [
+      {
+        "tekst": "Jeg er sykmeldt fra",
+        "shortName": "ARBEIDSSITUASJON",
+        "svartype": "ARBEIDSSITUASJON",
+        "svar": "FRILANSER"
+      },
+      {
+        "tekst": "Har du forsikring som gjelder de første 16 dagene av sykefraværet?",
+        "shortName": "FORSIKRING",
+        "svartype": "JA_NEI",
+        "svar": "JA"
+      },
+      {
+        "tekst": "Brukte du egenmelding eller noen annen sykmelding før datoen denne sykmeldingen gjelder fra?",
+        "shortName": "FRAVAER",
+        "svartype": "JA_NEI",
+        "svar": "JA"
+      },
+      {
+        "tekst": "Hvilke dager var du borte fra jobb før datoen sykmeldingen gjelder fra?",
+        "shortName": "PERIODE",
+        "svartype": "PERIODER",
+        "svar": "{[{\"fom\": \"2019-8-1\", \"tom\": \"2019-8-15\"}, {\"fom\": \"2019-9-1\", \"tom\": \"2019-9-3\"}]}"
+      }
+    ]
+  }
+}
