@@ -1,12 +1,12 @@
 {
   "kafkaMetadata": {
     "sykmeldingId": "7f5bc53b-8b99-4f6a-a4c8-033df15050d0",
-    "timestamp": "2020-01-23T14:27:56.362752",
+    "timestamp": "2020-01-23T14:27:56.362752Z",
     "source": "syfoservice"
   },
   "event": {
     "sykmeldingId": "7f5bc53b-8b99-4f6a-a4c8-033df15050d0",
-    "timestamp": "2020-01-23T14:27:56.135521",
+    "timestamp": "2020-01-23T14:27:56.135521Z",
     "statusEvent": "SENDT",
     "arbeidsgiver": {
       "orgnummer": "979797979",

@@ -1,12 +1,12 @@
 {
   "kafkaMetadata": {
     "sykmeldingId": "b5e84795-43a8-4adb-ac1d-4b2e1e0c5fb7",
-    "timestamp": "2020-01-23T14:46:42.296954",
+    "timestamp": "2020-01-23T14:46:42.296954Z",
     "source": "syfoservice"
   },
   "event": {
     "sykmeldingId": "b5e84795-43a8-4adb-ac1d-4b2e1e0c5fb7",
-    "timestamp": "2020-01-23T14:46:42.176929",
+    "timestamp": "2020-01-23T14:46:42.176929Z",
     "statusEvent": "BEKREFTET",
     "arbeidsgiver": null,
     "sporsmals": [
