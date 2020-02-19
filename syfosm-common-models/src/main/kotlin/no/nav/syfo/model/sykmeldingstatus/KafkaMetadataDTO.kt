@@ -1,9 +1,9 @@
 package no.nav.syfo.model.sykmeldingstatus
 
-import java.time.ZonedDateTime
+import java.time.OffsetDateTime
 
 data class KafkaMetadataDTO(
     val sykmeldingId: String,
-    val timestamp: ZonedDateTime,
+    val timestamp: OffsetDateTime,
     val source: String
 )
