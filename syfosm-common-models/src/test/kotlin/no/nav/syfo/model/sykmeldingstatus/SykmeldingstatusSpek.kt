@@ -26,6 +26,7 @@ object SykmeldingstatusSpek : Spek({
             sykmeldingStatusKafkaMessageDTO.kafkaMetadata.sykmeldingId shouldEqual "7f5bc53b-8b99-4f6a-a4c8-033df15050d0"
             sykmeldingStatusKafkaMessageDTO.kafkaMetadata.source shouldEqual "syfoservice"
             sykmeldingStatusKafkaMessageDTO.kafkaMetadata.timestamp.toLocalDate() shouldEqual LocalDate.of(2020, Month.JANUARY, 23)
+            sykmeldingStatusKafkaMessageDTO.kafkaMetadata.fnr shouldEqual "12345678910"
 
             sykmeldingStatusKafkaMessageDTO.event.sykmeldingId shouldEqual "7f5bc53b-8b99-4f6a-a4c8-033df15050d0"
             sykmeldingStatusKafkaMessageDTO.event.timestamp.toLocalDate() shouldEqual LocalDate.of(2020, Month.JANUARY, 23)
@@ -42,6 +43,7 @@ object SykmeldingstatusSpek : Spek({
             sykmeldingStatusKafkaMessageDTO.kafkaMetadata.sykmeldingId shouldEqual "b5e84795-43a8-4adb-ac1d-4b2e1e0c5fb7"
             sykmeldingStatusKafkaMessageDTO.kafkaMetadata.source shouldEqual "syfoservice"
             sykmeldingStatusKafkaMessageDTO.kafkaMetadata.timestamp.toLocalDate() shouldEqual LocalDate.of(2020, Month.JANUARY, 23)
+            sykmeldingStatusKafkaMessageDTO.kafkaMetadata.fnr shouldEqual "12345678910"
 
             sykmeldingStatusKafkaMessageDTO.event.sykmeldingId shouldEqual "b5e84795-43a8-4adb-ac1d-4b2e1e0c5fb7"
             sykmeldingStatusKafkaMessageDTO.event.timestamp.toLocalDate() shouldEqual LocalDate.of(2020, Month.JANUARY, 23)
@@ -61,6 +63,7 @@ object SykmeldingstatusSpek : Spek({
             sykmeldingStatusKafkaMessageDTO.kafkaMetadata.sykmeldingId shouldEqual "7f5bc53b-8b99-4f6a-a4c8-033df15050d0"
             sykmeldingStatusKafkaMessageDTO.kafkaMetadata.source shouldEqual "syfoservice"
             sykmeldingStatusKafkaMessageDTO.kafkaMetadata.timestamp.toLocalDate() shouldEqual LocalDate.of(2020, Month.JANUARY, 23)
+            sykmeldingStatusKafkaMessageDTO.kafkaMetadata.fnr shouldEqual "12345678910"
 
             sykmeldingStatusKafkaMessageDTO.event.sykmeldingId shouldEqual "7f5bc53b-8b99-4f6a-a4c8-033df15050d0"
             sykmeldingStatusKafkaMessageDTO.event.timestamp.toLocalDate() shouldEqual LocalDate.of(2020, Month.JANUARY, 23)
