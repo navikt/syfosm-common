@@ -2,6 +2,7 @@
   "kafkaMetadata": {
     "sykmeldingId": "b5e84795-43a8-4adb-ac1d-4b2e1e0c5fb7",
     "timestamp": "2020-01-23T14:46:42.296954Z",
+    "fnr": "12345678910",
     "source": "syfoservice"
   },
   "event": {
