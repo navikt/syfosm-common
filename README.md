@@ -3,6 +3,9 @@
 # syfosm-common
 Common code used over all syfo sykmelding applications
 
+##syfosm-common-diagnosis-codes
+see https://github.com/navikt/syfodiagnosecodegeneratorjson
+
 ## Contact us
 ### Code/project related questions can be sent to
 * Joakim Kartveit, `joakim.kartveit@nav.no`
