@@ -30,7 +30,7 @@ object SykmeldingstatusSpek : Spek({
 
             sykmeldingStatusKafkaMessageDTO.event.sykmeldingId shouldEqual "7f5bc53b-8b99-4f6a-a4c8-033df15050d0"
             sykmeldingStatusKafkaMessageDTO.event.timestamp.toLocalDate() shouldEqual LocalDate.of(2020, Month.JANUARY, 23)
-            sykmeldingStatusKafkaMessageDTO.event.statusEvent shouldEqual StatusEventDTO.SENDT
+            sykmeldingStatusKafkaMessageDTO.event.statusEvent shouldEqual STATUS_SENDT
             sykmeldingStatusKafkaMessageDTO.event.arbeidsgiver shouldEqual ArbeidsgiverStatusDTO(orgnummer = "979797979", juridiskOrgnummer = "898989898", orgNavn = "LØNNS- OG REGNSKAPSSENTERET")
             sykmeldingStatusKafkaMessageDTO.event.sporsmals shouldEqual listOf(
                 SporsmalOgSvarDTO(tekst = "Jeg er sykmeldt fra", shortName = ShortNameDTO.ARBEIDSSITUASJON, svartype = SvartypeDTO.ARBEIDSSITUASJON, svar = "ARBEIDSTAKER"),
@@ -47,7 +47,7 @@ object SykmeldingstatusSpek : Spek({
 
             sykmeldingStatusKafkaMessageDTO.event.sykmeldingId shouldEqual "b5e84795-43a8-4adb-ac1d-4b2e1e0c5fb7"
             sykmeldingStatusKafkaMessageDTO.event.timestamp.toLocalDate() shouldEqual LocalDate.of(2020, Month.JANUARY, 23)
-            sykmeldingStatusKafkaMessageDTO.event.statusEvent shouldEqual StatusEventDTO.BEKREFTET
+            sykmeldingStatusKafkaMessageDTO.event.statusEvent shouldEqual STATUS_BEKREFTET
             sykmeldingStatusKafkaMessageDTO.event.arbeidsgiver shouldEqual null
             sykmeldingStatusKafkaMessageDTO.event.sporsmals!!.size shouldEqual 4
             sykmeldingStatusKafkaMessageDTO.event.sporsmals shouldEqual listOf(
@@ -67,7 +67,7 @@ object SykmeldingstatusSpek : Spek({
 
             sykmeldingStatusKafkaMessageDTO.event.sykmeldingId shouldEqual "7f5bc53b-8b99-4f6a-a4c8-033df15050d0"
             sykmeldingStatusKafkaMessageDTO.event.timestamp.toLocalDate() shouldEqual LocalDate.of(2020, Month.JANUARY, 23)
-            sykmeldingStatusKafkaMessageDTO.event.statusEvent shouldEqual StatusEventDTO.SENDT
+            sykmeldingStatusKafkaMessageDTO.event.statusEvent shouldEqual STATUS_SENDT
             sykmeldingStatusKafkaMessageDTO.event.arbeidsgiver shouldEqual null
             sykmeldingStatusKafkaMessageDTO.event.sporsmals shouldEqual null
         }
