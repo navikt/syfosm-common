@@ -5,7 +5,7 @@ import java.time.OffsetDateTime
 data class SykmeldingStatusKafkaEventDTO(
     val sykmeldingId: String,
     val timestamp: OffsetDateTime,
-    val statusEvent: StatusEventDTO,
+    val statusEvent: String,
     val arbeidsgiver: ArbeidsgiverStatusDTO? = null,
     val sporsmals: List<SporsmalOgSvarDTO>? = null
 )
