@@ -1,14 +1,20 @@
 package no.nav.syfo.kafka
 
+import org.apache.kafka.clients.CommonClientConfigs
 import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.apache.kafka.clients.producer.ProducerConfig
+import org.apache.kafka.common.config.SslConfigs
 import org.apache.kafka.common.serialization.*
 import org.apache.kafka.streams.StreamsConfig
+import java.io.File
 import java.util.Properties
 import kotlin.reflect.KClass
 
 interface KafkaConfig {
     val kafkaBootstrapServers: String
+    val truststore: String?
+    val truststorePassword: String?
+    val cluster: String
 }
 
 interface KafkaCredentials {
@@ -22,6 +28,11 @@ fun loadBaseConfig(env: KafkaConfig, credentials: KafkaCredentials): Properties 
             "username=\"${credentials.kafkaUsername}\" password=\"${credentials.kafkaPassword}\";"
     it["bootstrap.servers"] = env.kafkaBootstrapServers
     it["specific.avro.reader"] = true
+    if(env.cluster != "localhost") {
+        it[CommonClientConfigs.SECURITY_PROTOCOL_CONFIG] = "SASL_SSL"
+        it[SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG] = File(env.truststore!!).absolutePath
+        it[SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG] = env.truststorePassword!!
+    }
 }
 
 fun Properties.envOverrides() = apply {
