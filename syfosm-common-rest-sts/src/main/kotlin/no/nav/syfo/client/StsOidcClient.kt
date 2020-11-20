@@ -10,8 +10,7 @@ import io.ktor.client.features.auth.Auth
 import io.ktor.client.features.auth.providers.basic
 import io.ktor.client.features.json.JacksonSerializer
 import io.ktor.client.features.json.JsonFeature
-import io.ktor.client.request.get
-import io.ktor.client.request.parameter
+import io.ktor.client.request.*
 import io.ktor.util.KtorExperimentalAPI
 import kotlinx.coroutines.runBlocking
 
@@ -19,7 +18,8 @@ import kotlinx.coroutines.runBlocking
 class StsOidcClient(
     username: String,
     password: String,
-    private val stsUrl: String = "http://security-token-service/rest/v1/sts/token"
+    private val stsUrl: String = "http://security-token-service/rest/v1/sts/token",
+    private val apiKey: String? = null
 ) {
     private var tokenExpires: Long = 0
     private val oidcClient = HttpClient(CIO) {
@@ -52,6 +52,9 @@ class StsOidcClient(
 
     private suspend fun newOidcToken(): OidcToken =
             oidcClient.get(stsUrl) {
+                if(apiKey != null) {
+                    header("x-nav-apikey", apiKey)
+                }
                 parameter("grant_type", "client_credentials")
                 parameter("scope", "openid")
             }
