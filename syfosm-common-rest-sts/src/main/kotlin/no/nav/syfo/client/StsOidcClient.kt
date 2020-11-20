@@ -52,7 +52,7 @@ class StsOidcClient(
 
     private suspend fun newOidcToken(): OidcToken =
             oidcClient.get(stsUrl) {
-                if(apiKey != null) {
+                if(!apiKey.isNullOrBlank()) {
                     header("x-nav-apikey", apiKey)
                 }
                 parameter("grant_type", "client_credentials")
