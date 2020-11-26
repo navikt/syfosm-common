@@ -11,6 +11,7 @@ import io.ktor.client.features.auth.providers.basic
 import io.ktor.client.features.json.JacksonSerializer
 import io.ktor.client.features.json.JsonFeature
 import io.ktor.client.request.*
+import io.ktor.client.request.forms.*
 import io.ktor.util.KtorExperimentalAPI
 import kotlinx.coroutines.runBlocking
 
@@ -51,11 +52,10 @@ class StsOidcClient(
     }
 
     private suspend fun newOidcToken(): OidcToken =
-            oidcClient.get(stsUrl) {
+            oidcClient.post(stsUrl) {
                 if(!apiKey.isNullOrBlank()) {
                     header("x-nav-apikey", apiKey)
                 }
-                parameter("grant_type", "client_credentials")
-                parameter("scope", "openid")
+                formData(FormPart("grant_type", "client_credentials"), FormPart("scope", "openid"))
             }
 }
