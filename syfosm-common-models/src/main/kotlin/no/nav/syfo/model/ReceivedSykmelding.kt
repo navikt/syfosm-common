@@ -15,6 +15,7 @@ data class ReceivedSykmelding(
     val legekontorOrgName: String,
     val mottattDato: LocalDateTime,
     val rulesetVersion: String?,
+    val merknader: List<Merknad>?,
     /**
      * Full fellesformat as a XML payload, this is only used for infotrygd compat and should be removed in thefuture
      */
