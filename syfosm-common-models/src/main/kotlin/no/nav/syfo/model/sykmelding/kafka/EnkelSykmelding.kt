@@ -1,5 +1,6 @@
 package no.nav.syfo.model.sykmelding.kafka
 
+import no.nav.syfo.model.Merknad
 import no.nav.syfo.model.sykmelding.model.*
 import java.time.LocalDate
 import java.time.OffsetDateTime
@@ -20,5 +21,6 @@ data class EnkelSykmelding(
     val prognose: PrognoseDTO?,
     val egenmeldt: Boolean,
     val papirsykmelding: Boolean,
-    val harRedusertArbeidsgiverperiode: Boolean
+    val harRedusertArbeidsgiverperiode: Boolean,
+    val merknader: List<Merknad>?
 )
