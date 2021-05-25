@@ -16,6 +16,7 @@ data class ReceivedSykmelding(
     val mottattDato: LocalDateTime,
     val rulesetVersion: String?,
     val merknader: List<Merknad>?,
+    val partnerreferanse: String?,
     /**
      * Full fellesformat as a XML payload, this is only used for infotrygd compat and should be removed in thefuture
      */
