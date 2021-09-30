@@ -1,0 +1,23 @@
+{
+  "id": "b5e84795-43a8-4adb-ac1d-4b2e1e0c5fb7",
+  "mottattTidspunkt": "2020-01-01T12:28:40.296954Z",
+  "behandletTidspunkt": "2019-12-18T23:00:00.296954Z",
+  "arbeidsgiver": {},
+  "sykmeldingsperioder": [
+    {
+      "fom": "2020-01-03",
+      "tom": "2020-01-04",
+      "type": "REISETILSKUDD",
+      "reisetilskudd": true
+    }
+  ],
+  "kontaktMedPasient": {},
+  "behandler": {
+    "fornavn": "Trond",
+    "etternavn": "Superlege",
+    "adresse": {}
+  },
+  "egenmeldt": false,
+  "papirsykmelding": false,
+  "harRedusertArbeidsgiverperiode": false
+}
