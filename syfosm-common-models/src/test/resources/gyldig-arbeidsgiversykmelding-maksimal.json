@@ -1,0 +1,65 @@
+{
+  "id": "b5e84795-43a8-4adb-ac1d-4b2e1e0c5fb7",
+  "mottattTidspunkt": "2020-01-01T12:28:40.296954Z",
+  "syketilfelleStartDato": "2019-05-09",
+  "behandletTidspunkt": "2019-12-18T23:00:00.296954Z",
+  "navnFastlege": "Karl Fastlege",
+  "arbeidsgiver": {
+    "navn": "Min Bedrift",
+    "stillingsprosent": 100
+  },
+  "sykmeldingsperioder": [
+    {
+      "fom": "2020-01-03",
+      "tom": "2020-01-04",
+      "gradert": {
+        "reisetilskudd": false,
+        "grad": 50
+      },
+      "behandlingsdager": 5,
+      "innspillTilArbeidsgiver": "innspill",
+      "type": "AKTIVITET_IKKE_MULIG",
+      "aktivitetIkkeMulig": {
+        "arbeidsrelatertArsak": {
+          "beskrivelse": "beskrivelse",
+          "arsak": [
+            "MANGLENDE_TILRETTELEGGING"
+          ]
+        }
+      },
+      "reisetilskudd": false
+    }
+  ],
+  "prognose": {
+    "arbeidsforEtterPeriode": true,
+    "hensynArbeidsplassen": "hensyn"
+  },
+  "tiltakArbeidsplassen": "tiltak",
+  "meldingTilArbeidsgiver": "melding",
+  "kontaktMedPasient": {
+    "kontaktDato": "2019-05-09"
+  },
+  "behandler": {
+    "fornavn": "Trond",
+    "mellomnavn": "Lege",
+    "etternavn": "Superlege",
+    "hpr": "7777777",
+    "adresse": {
+      "gate": "Testveien 1",
+      "postnummer": 4820,
+      "kommune": "Aremark",
+      "postboks": "1234",
+      "land": "Country"
+    },
+    "tlf": "Tel:37375555"
+  },
+  "egenmeldt": false,
+  "papirsykmelding": false,
+  "harRedusertArbeidsgiverperiode": false,
+  "merknader": [
+    {
+      "type": "UGYLDIG_TILBAKEDATERING",
+      "beskrivelse": "Ikke godkjent"
+    }
+  ]
+}
