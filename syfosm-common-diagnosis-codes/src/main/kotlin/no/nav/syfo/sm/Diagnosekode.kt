@@ -57,4 +57,4 @@ object Diagnosekoder {
 
 fun Diagnose.isICPC2(): Boolean = system == Diagnosekoder.ICPC2_CODE
 
-fun Diagnose.isICpc10(): Boolean = system == Diagnosekoder.ICD10_CODE
+fun Diagnose.isICD10(): Boolean = system == Diagnosekoder.ICD10_CODE
