@@ -3,10 +3,9 @@
   "mottattTidspunkt": "2020-01-01T12:28:40.296954Z",
   "syketilfelleStartDato": "2019-05-09",
   "behandletTidspunkt": "2019-12-18T23:00:00.296954Z",
-  "navnFastlege": "Karl Fastlege",
   "arbeidsgiver": {
     "navn": "Min Bedrift",
-    "stillingsprosent": 100
+    "yrkesbetegnelse": "Sjef"
   },
   "sykmeldingsperioder": [
     {
