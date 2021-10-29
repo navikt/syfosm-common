@@ -7,6 +7,8 @@ data class ReceivedSykmelding(
     val personNrPasient: String,
     val tlfPasient: String?,
     val personNrLege: String,
+    val legeHelsepersonellkategori: String?,
+    val legeHprNr: String?,
     val navLogId: String,
     val msgId: String,
     val legekontorOrgNr: String?,
