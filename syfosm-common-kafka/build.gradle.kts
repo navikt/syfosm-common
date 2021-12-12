@@ -1,4 +1,5 @@
 val kafkaVersion = "2.0.0"
+val zookeeperVersion = "3.4.14"
 
 plugins {
     id("java")
@@ -9,6 +10,9 @@ plugins {
 dependencies {
     api("org.apache.kafka:kafka_2.12:$kafkaVersion")
     api("org.apache.kafka:kafka-streams:$kafkaVersion")
+    api("org.apache.zookeeper:zookeeper:$zookeeperVersion") {
+        exclude(group = "log4j")
+    }
 }
 
 subprojects {
