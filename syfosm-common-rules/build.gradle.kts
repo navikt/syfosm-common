@@ -1,23 +1,11 @@
 plugins {
     id("java")
     id("maven-publish")
-    id("org.sonarqube") version "2.7"
 }
 
 dependencies {
     api(project(":syfosm-common-models"))
     api(project(":syfosm-common-metrics"))
-}
-
-subprojects {
-    properties["sonarHost"]?.let { host ->
-        sonarqube {
-            properties {
-                property("sonar.sourceEncoding", "UTF-8")
-                property("sonar.host.url", host)
-            }
-        }
-    }
 }
 
 publishing {
@@ -35,7 +23,7 @@ publishing {
 
             pom {
                 name.set("syfosm-common-rules")
-                description.set("Bibliotek for sykemedlingene sine regeler")
+                description.set("Bibliotek for sykmeldingene sine regler")
                 url.set("https://github.com/navikt/syfosm-common")
                 licenses {
                     license {

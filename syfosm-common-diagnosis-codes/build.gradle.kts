@@ -1,10 +1,9 @@
-val jacksonVersion = "2.9.8"
+val jacksonVersion = "2.13.0"
 
 
 plugins {
     id("java")
     id("maven-publish")
-    id("org.sonarqube") version "2.7"
 }
 
 dependencies {
@@ -12,17 +11,6 @@ dependencies {
     api("com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVersion")
     api("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonVersion")
     implementation(project(":syfosm-common-models"))
-}
-
-subprojects {
-    properties["sonarHost"]?.let { host ->
-        sonarqube {
-            properties {
-                property("sonar.sourceEncoding", "UTF-8")
-                property("sonar.host.url", host)
-            }
-        }
-    }
 }
 
 publishing {
@@ -39,8 +27,8 @@ publishing {
         create<MavenPublication>("mavenJava") {
 
             pom {
-                name.set("syfosm-common-kafka")
-                description.set("Bibliotek for felles kafka oppsett for sykmeldings doement")
+                name.set("syfosm-common-diagnosis-codes")
+                description.set("Bibliotek for diagnosekoder for sykmeldingdomenet")
                 url.set("https://github.com/navikt/syfosm-common")
                 licenses {
                     license {
