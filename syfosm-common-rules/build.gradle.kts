@@ -6,6 +6,7 @@ plugins {
 dependencies {
     api(project(":syfosm-common-models"))
     api(project(":syfosm-common-metrics"))
+    api("org.bouncycastle:bcprov-jdk15on:1.66")
 }
 
 publishing {
