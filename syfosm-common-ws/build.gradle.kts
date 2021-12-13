@@ -10,6 +10,8 @@ dependencies {
     api("org.apache.cxf:cxf-rt-features-logging:$cxfVersion")
     api("org.apache.cxf:cxf-rt-transports-http:$cxfVersion")
     api("org.apache.cxf:cxf-rt-ws-security:$cxfVersion")
+    api("commons-collections:commons-collections:3.2.2")
+    api("org.bouncycastle:bcprov-jdk15on:1.66")
 }
 
 publishing {
