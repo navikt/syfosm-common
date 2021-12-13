@@ -15,7 +15,6 @@ dependencies {
     implementation("io.ktor:ktor-client-jackson:$ktorVersion")
     implementation("io.ktor:ktor-client-auth:$ktorVersion")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonVersion")
-    implementation("org.bouncycastle:bcprov-jdk15on:1.66")
 }
 
 publishing {
