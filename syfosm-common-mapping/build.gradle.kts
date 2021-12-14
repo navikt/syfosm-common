@@ -9,24 +9,12 @@ repositories {
 plugins {
     id("java")
     id("maven-publish")
-    id("org.sonarqube") version "2.7"
 }
 
 dependencies {
     implementation(project(":syfosm-common-models"))
     implementation("no.nav.syfo.tjenester:fellesformat:$fellesformatVersion")
     implementation("no.nav.helse.xml:sm2013:$sykmeldingVersion")
-}
-
-subprojects {
-    properties["sonarHost"]?.let { host ->
-        sonarqube {
-            properties {
-                property("sonar.sourceEncoding", "UTF-8")
-                property("sonar.host.url", host)
-            }
-        }
-    }
 }
 
 publishing {
@@ -44,7 +32,7 @@ publishing {
 
             pom {
                 name.set("syfosm-common-mapping")
-                description.set("Bibliotek for mapping i sykmeldings doemenet")
+                description.set("Bibliotek for mapping i sykmeldingdomenet")
                 url.set("https://github.com/navikt/syfosm-common")
                 licenses {
                     license {

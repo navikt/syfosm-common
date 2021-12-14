@@ -2,20 +2,21 @@ package no.nav.syfo.client
 
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.SerializationFeature
-import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
+import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import io.ktor.client.HttpClient
-import io.ktor.client.engine.cio.CIO
+import io.ktor.client.engine.apache.Apache
 import io.ktor.client.features.auth.Auth
+import io.ktor.client.features.auth.providers.BasicAuthCredentials
 import io.ktor.client.features.auth.providers.basic
 import io.ktor.client.features.json.JacksonSerializer
 import io.ktor.client.features.json.JsonFeature
-import io.ktor.client.request.*
-import io.ktor.client.request.forms.*
-import io.ktor.util.KtorExperimentalAPI
+import io.ktor.client.request.forms.FormPart
+import io.ktor.client.request.forms.formData
+import io.ktor.client.request.header
+import io.ktor.client.request.post
 import kotlinx.coroutines.runBlocking
 
-@KtorExperimentalAPI
 class StsOidcClient(
     username: String,
     password: String,
@@ -23,7 +24,7 @@ class StsOidcClient(
     private val apiKey: String? = null
 ) {
     private var tokenExpires: Long = 0
-    private val oidcClient = HttpClient(CIO) {
+    private val oidcClient = HttpClient(Apache) {
         install(JsonFeature) {
             serializer = JacksonSerializer {
                 registerKotlinModule()
@@ -34,9 +35,10 @@ class StsOidcClient(
         }
         install(Auth) {
             basic {
-                this.username = username
-                this.password = password
-                this.sendWithoutRequest = true
+                credentials {
+                    BasicAuthCredentials(username = username, password = password)
+                }
+                sendWithoutRequest { true }
             }
         }
     }

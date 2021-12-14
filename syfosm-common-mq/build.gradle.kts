@@ -1,24 +1,12 @@
-val ibmMqVersion = "9.2.1.0"
+val ibmMqVersion = "9.2.4.0"
 
 plugins {
     id("java")
     id("maven-publish")
-    id("org.sonarqube") version "2.7"
 }
 
 dependencies {
     api("com.ibm.mq:com.ibm.mq.allclient:$ibmMqVersion")
-}
-
-subprojects {
-    properties["sonarHost"]?.let { host ->
-        sonarqube {
-            properties {
-                property("sonar.sourceEncoding", "UTF-8")
-                property("sonar.host.url", host)
-            }
-        }
-    }
 }
 
 publishing {
@@ -36,7 +24,7 @@ publishing {
 
             pom {
                 name.set("syfosm-common-mq")
-                description.set("Bibliotek for standar MQ for sykmeldings doemenet")
+                description.set("Bibliotek for standard MQ for sykmeldingdomenet")
                 url.set("https://github.com/navikt/syfosm-common")
                 licenses {
                     license {

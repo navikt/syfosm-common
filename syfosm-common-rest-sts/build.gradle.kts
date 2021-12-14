@@ -1,5 +1,5 @@
-val ktorVersion = "1.3.0"
-val jacksonVersion = "2.9.8"
+val ktorVersion = "1.6.6"
+val jacksonVersion = "2.13.0"
 
 repositories {
     maven(url = "https://kotlin.bintray.com/kotlinx")
@@ -8,25 +8,13 @@ repositories {
 plugins {
     id("java")
     id("maven-publish")
-    id("org.sonarqube") version "2.7"
 }
 
 dependencies {
-    implementation("io.ktor:ktor-client-cio:$ktorVersion")
+    implementation("io.ktor:ktor-client-apache:$ktorVersion")
     implementation("io.ktor:ktor-client-jackson:$ktorVersion")
-    implementation("io.ktor:ktor-client-auth-jvm:$ktorVersion")
+    implementation("io.ktor:ktor-client-auth:$ktorVersion")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonVersion")
-}
-
-subprojects {
-    properties["sonarHost"]?.let { host ->
-        sonarqube {
-            properties {
-                property("sonar.sourceEncoding", "UTF-8")
-                property("sonar.host.url", host)
-            }
-        }
-    }
 }
 
 publishing {
@@ -44,7 +32,7 @@ publishing {
 
             pom {
                 name.set("syfoam-common-rest-sts")
-                description.set("Bibliotek for rest sts oppsett for sykmeldings domentet")
+                description.set("Bibliotek for rest-sts-oppsett for sykmeldingdomenet")
                 url.set("https://github.com/navikt/syfosm-common")
                 licenses {
                     license {

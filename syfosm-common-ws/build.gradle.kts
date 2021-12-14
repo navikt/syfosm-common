@@ -1,9 +1,8 @@
-val cxfVersion = "3.3.1"
+val cxfVersion = "3.4.5"
 
 plugins {
     id("java")
     id("maven-publish")
-    id("org.sonarqube") version "2.7"
 }
 
 dependencies {
@@ -11,17 +10,8 @@ dependencies {
     api("org.apache.cxf:cxf-rt-features-logging:$cxfVersion")
     api("org.apache.cxf:cxf-rt-transports-http:$cxfVersion")
     api("org.apache.cxf:cxf-rt-ws-security:$cxfVersion")
-}
-
-subprojects {
-    properties["sonarHost"]?.let { host ->
-        sonarqube {
-            properties {
-                property("sonar.sourceEncoding", "UTF-8")
-                property("sonar.host.url", host)
-            }
-        }
-    }
+    api("commons-collections:commons-collections:3.2.2")
+    api("org.bouncycastle:bcprov-jdk15on:1.67")
 }
 
 publishing {
@@ -39,7 +29,7 @@ publishing {
 
             pom {
                 name.set("syfosm-common-ws")
-                description.set("Bibliotek for web-services implemenering i sykmeldings domenet")
+                description.set("Bibliotek for web-services implemenering i sykmeldingdomenet")
                 url.set("https://github.com/navikt/syfosm-common")
                 licenses {
                     license {
