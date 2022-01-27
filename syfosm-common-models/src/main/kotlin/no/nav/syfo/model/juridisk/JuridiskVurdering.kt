@@ -16,13 +16,29 @@ data class JuridiskVurdering(
 )
 
 data class JuridiskHenvisning(
-    private val lovverk: String,
-    private val lovverksversjon: LocalDate,
+    private val lovverk: Lovverk,
     private val paragraf: String,
     private val ledd: Int?,
     private val puktum: Int?,
     private val bokstav: String?
 )
+
+enum class Lovverk(
+    val navn: String,
+    val kortnavn: String,
+    val lovverksversjon: LocalDate
+){
+    FOLKETRYGDLOVEN(
+        navn = "Lov om folketrygd",
+        kortnavn = "Folketrygdloven",
+        lovverksversjon = LocalDate.of(2022,1,1)
+    ),
+    FORVALTNINGSLOVEN(
+        navn = "Lov om behandlingsmåten i forvaltningssaker",
+        kortnavn = "Forvaltningsloven",
+        lovverksversjon = LocalDate.of(2022, 1, 1)
+    )
+}
 
 enum class JuridiskUtfall {
     VILKAR_OPPFYLT,
