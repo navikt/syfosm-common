@@ -1,8 +1,11 @@
 package no.nav.syfo.model
 
+import no.nav.syfo.model.juridisk.JuridiskVurdering
+
 data class ValidationResult(
     val status: Status,
-    val ruleHits: List<RuleInfo>
+    val ruleHits: List<RuleInfo>,
+    val jurdiskeVurderinger: List<JuridiskVurdering>
 )
 
 data class RuleInfo(
