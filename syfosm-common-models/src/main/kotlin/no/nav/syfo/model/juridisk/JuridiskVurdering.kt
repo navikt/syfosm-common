@@ -20,7 +20,7 @@ data class JuridiskHenvisning(
     private val lovverksversjon: LocalDate,
     private val paragraf: String,
     private val ledd: Int?,
-    private val puktum: String?,
+    private val puktum: Int?,
     private val bokstav: String?
 )
 
