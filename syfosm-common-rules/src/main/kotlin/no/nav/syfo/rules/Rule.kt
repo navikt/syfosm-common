@@ -3,6 +3,7 @@ package no.nav.syfo.rules
 import io.prometheus.client.Counter
 import no.nav.syfo.model.Status
 import no.nav.syfo.model.Sykmelding
+import no.nav.syfo.model.juridisk.JuridiskHenvisning
 
 val RULE_HIT_COUNTER: Counter = Counter.Builder()
     .namespace("syfosm")
@@ -17,6 +18,7 @@ interface Rule<in T> {
     val ruleId: Int?
     val messageForSender: String?
     val messageForUser: String?
+    val juridiskHenvisning: JuridiskHenvisning?
     val status: Status
     val predicate: (T) -> Boolean
     operator fun invoke(input: T) = predicate(input)
