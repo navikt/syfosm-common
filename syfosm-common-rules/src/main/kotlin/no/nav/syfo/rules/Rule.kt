@@ -19,7 +19,6 @@ interface Rule<in T> {
     val messageForSender: String?
     val messageForUser: String?
     val juridiskHenvisning: JuridiskHenvisning?
-    val juridiskFaktum: Map<String, Any>?
     val status: Status
     val predicate: (T) -> Boolean
     operator fun invoke(input: T) = predicate(input)
