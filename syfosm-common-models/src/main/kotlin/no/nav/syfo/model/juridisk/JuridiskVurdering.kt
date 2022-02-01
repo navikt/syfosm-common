@@ -3,24 +3,24 @@ package no.nav.syfo.model.juridisk
 import java.time.LocalDate
 
 data class JuridiskVurdering(
-    private val id: String,
-    private val eventName: String,
-    private val version: String,
-    private val kilde: String,
-    private val versjonAvKode: String,
-    private val fodselsnummer: String,
-    private val juridiskHenvisning: JuridiskHenvisning,
-    private val sporing: Map<String, String>,
-    private val input: Map<String, Any>,
-    private val utfall: JuridiskUtfall
+    val id: String,
+    val eventName: String,
+    val version: String,
+    val kilde: String,
+    val versjonAvKode: String,
+    val fodselsnummer: String,
+    val juridiskHenvisning: JuridiskHenvisning,
+    val sporing: Map<String, String>,
+    val input: Map<String, Any>,
+    val utfall: JuridiskUtfall
 )
 
 data class JuridiskHenvisning(
-    private val lovverk: Lovverk,
-    private val paragraf: String,
-    private val ledd: Int?,
-    private val punktum: Int?,
-    private val bokstav: String?
+    val lovverk: Lovverk,
+    val paragraf: String,
+    val ledd: Int?,
+    val punktum: Int?,
+    val bokstav: String?
 )
 
 enum class Lovverk(
