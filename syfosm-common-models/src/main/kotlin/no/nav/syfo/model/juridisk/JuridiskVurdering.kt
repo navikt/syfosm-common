@@ -15,6 +15,10 @@ data class JuridiskVurdering(
     val utfall: JuridiskUtfall
 )
 
+data class JuridiskVurderingResult(
+    val juridiskeVurderinger: List<JuridiskVurdering>
+)
+
 data class JuridiskHenvisning(
     val lovverk: Lovverk,
     val paragraf: String,
