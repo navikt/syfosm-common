@@ -6,20 +6,18 @@ import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.readValue
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
+import io.kotest.core.spec.style.FunSpec
 import org.amshove.kluent.shouldBeEqualTo
-import org.amshove.kluent.shouldEqual
-import org.spekframework.spek2.Spek
-import org.spekframework.spek2.style.specification.describe
 
-object ValidationResultSpek : Spek({
+class ValidationResultSpek : FunSpec({
     val objectMapper = ObjectMapper()
         .registerKotlinModule()
         .registerModule(JavaTimeModule())
         .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
         .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
 
-    describe("Validering av ValidationResult") {
-        it("Gyldig ValidationResult med resultat OK skal validere ok") {
+    context("Validering av ValidationResult") {
+        test("Gyldig ValidationResult med resultat OK skal validere ok") {
             val validationResult: ValidationResult = objectMapper.readValue(
                 ValidationResult::class.java.getResourceAsStream("/gyldig-validationresult-ok.json").readBytes()
                     .toString(Charsets.UTF_8)
@@ -29,7 +27,7 @@ object ValidationResultSpek : Spek({
             validationResult.ruleHits.size shouldBeEqualTo 0
         }
 
-        it("Gyldig ValidationResult med resultat MANUAL_PROCESSING skal validere ok") {
+        test("Gyldig ValidationResult med resultat MANUAL_PROCESSING skal validere ok") {
             val validationResult: ValidationResult = objectMapper.readValue(
                 ValidationResult::class.java.getResourceAsStream("/gyldig-validationresult-manuell.json").readBytes()
                     .toString(Charsets.UTF_8)
@@ -45,7 +43,7 @@ object ValidationResultSpek : Spek({
             )
         }
 
-        it("Gyldig ValidationResult med resultat INVALID skal validere ok") {
+        test("Gyldig ValidationResult med resultat INVALID skal validere ok") {
             val validationResult: ValidationResult = objectMapper.readValue(
                 ValidationResult::class.java.getResourceAsStream("/gyldig-validationresult-avvist.json").readBytes()
                     .toString(Charsets.UTF_8)

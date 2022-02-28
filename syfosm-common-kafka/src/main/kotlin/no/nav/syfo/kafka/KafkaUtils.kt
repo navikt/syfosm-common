@@ -41,7 +41,7 @@ fun Properties.envOverrides() = apply {
             key.startsWith("KAFKA_")
         }
         .map { (key, value) ->
-            key.substring(6).toLowerCase().replace("_", ".") to value
+            key.substring(6).lowercase().replace("_", ".") to value
         }
         .toMap())
 }
