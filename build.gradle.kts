@@ -1,9 +1,9 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 val kluentVersion = "1.68"
-val spekVersion =  "2.0.17"
-val jacksonVersion = "2.13.0"
+val jacksonVersion = "2.13.1"
 val kotlinVersion = "1.6.0"
+val kotestVersion = "5.1.0"
 
 repositories {
     mavenCentral()
@@ -32,13 +32,12 @@ subprojects {
     dependencies {
         implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
 
-        testImplementation("org.spekframework.spek2:spek-dsl-jvm:$spekVersion")
+        testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
         testImplementation("org.amshove.kluent:kluent:$kluentVersion")
-        testRuntimeOnly("org.spekframework.spek2:spek-runner-junit5:$spekVersion")
     }
 
     tasks.withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = "16"
+        kotlinOptions.jvmTarget = "17"
     }
 
     tasks.withType<Test> {

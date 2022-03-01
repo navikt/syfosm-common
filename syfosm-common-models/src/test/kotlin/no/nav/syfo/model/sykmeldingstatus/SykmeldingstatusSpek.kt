@@ -6,22 +6,20 @@ import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.readValue
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
+import io.kotest.core.spec.style.FunSpec
 import org.amshove.kluent.shouldBeEqualTo
-import org.amshove.kluent.shouldEqual
-import org.spekframework.spek2.Spek
-import org.spekframework.spek2.style.specification.describe
 import java.time.LocalDate
 import java.time.Month
 
-object SykmeldingstatusSpek : Spek({
+class SykmeldingstatusSpek : FunSpec({
     val objectMapper = ObjectMapper()
         .registerKotlinModule()
         .registerModule(JavaTimeModule())
         .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
         .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
 
-    describe("Validering av SykmeldingStatusKafkaMessage") {
-        it("Maksimal gyldig SykmeldingStatusKafkaMessage med status SENDT skal validere ok") {
+    context("Validering av SykmeldingStatusKafkaMessage") {
+        test("Maksimal gyldig SykmeldingStatusKafkaMessage med status SENDT skal validere ok") {
             val sykmeldingStatusKafkaMessageDTO: SykmeldingStatusKafkaMessageDTO = objectMapper.readValue(
                 SykmeldingStatusKafkaMessageDTO::class.java.getResourceAsStream("/gyldig-sykmeldingstatus-maksimal-sendt.json")
                     .readBytes().toString(Charsets.UTF_8)
@@ -64,7 +62,7 @@ object SykmeldingstatusSpek : Spek({
             )
         }
 
-        it("Maksimal gyldig SykmeldingStatusKafkaMessage med status BEKREFTET skal validere ok") {
+        test("Maksimal gyldig SykmeldingStatusKafkaMessage med status BEKREFTET skal validere ok") {
             val sykmeldingStatusKafkaMessageDTO: SykmeldingStatusKafkaMessageDTO = objectMapper.readValue(
                 SykmeldingStatusKafkaMessageDTO::class.java.getResourceAsStream("/gyldig-sykmeldingstatus-maksimal-bekreftet.json")
                     .readBytes().toString(Charsets.UTF_8)
@@ -116,7 +114,7 @@ object SykmeldingstatusSpek : Spek({
             )
         }
 
-        it("Minimal gyldig SykmeldingStatusKafkaMessage skal validere ok") {
+        test("Minimal gyldig SykmeldingStatusKafkaMessage skal validere ok") {
             val sykmeldingStatusKafkaMessageDTO: SykmeldingStatusKafkaMessageDTO = objectMapper.readValue(
                 SykmeldingStatusKafkaMessageDTO::class.java.getResourceAsStream("/gyldig-sykmeldingstatus-minimal.json")
                     .readBytes().toString(Charsets.UTF_8)

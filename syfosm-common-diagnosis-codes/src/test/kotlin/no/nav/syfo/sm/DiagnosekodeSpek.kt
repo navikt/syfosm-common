@@ -1,18 +1,17 @@
 package no.nav.syfo.sm
 
+import io.kotest.core.spec.style.FunSpec
 import org.amshove.kluent.shouldBeGreaterThan
-import org.spekframework.spek2.Spek
-import org.spekframework.spek2.style.specification.describe
 
-object DiagnosekodeSpek : Spek({
-    describe("ICPC2") {
-        it("Should be loaded") {
+class DiagnosekodeSpek : FunSpec({
+    context("ICPC2") {
+        test("Should be loaded") {
             Diagnosekoder.icpc2.size shouldBeGreaterThan 100
         }
     }
 
-    describe("ICD10") {
-        it("Should be loaded") {
+    context("ICD10") {
+        test("Should be loaded") {
             Diagnosekoder.icd10.size shouldBeGreaterThan 100
         }
     }

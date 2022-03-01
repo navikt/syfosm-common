@@ -6,23 +6,21 @@ import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.readValue
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
+import io.kotest.core.spec.style.FunSpec
 import org.amshove.kluent.shouldBeEqualTo
-import org.amshove.kluent.shouldEqual
 import org.amshove.kluent.shouldNotBe
-import org.spekframework.spek2.Spek
-import org.spekframework.spek2.style.specification.describe
 import java.time.LocalDateTime
 import java.time.Month
 
-object ReceivedSykmeldingSpek : Spek({
+class ReceivedSykmeldingSpek : FunSpec({
     val objectMapper = ObjectMapper()
         .registerKotlinModule()
         .registerModule(JavaTimeModule())
         .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
         .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
 
-    describe("Validering av ReceivedSykmelding") {
-        it("Maksimal gyldig ReceivedSykmelding skal validere ok") {
+    context("Validering av ReceivedSykmelding") {
+        test("Maksimal gyldig ReceivedSykmelding skal validere ok") {
             val receivedSykmelding: ReceivedSykmelding = objectMapper.readValue(
                 ReceivedSykmelding::class.java.getResourceAsStream("/gyldig-receivedsykmelding-maksimal.json")
                     .readBytes().toString(Charsets.UTF_8)
@@ -39,7 +37,7 @@ object ReceivedSykmeldingSpek : Spek({
             receivedSykmelding.sykmelding.utdypendeOpplysninger["6.3"] shouldNotBe null
         }
 
-        it("Minimal gyldig ReceivedSykmelding skal validere ok") {
+        test("Minimal gyldig ReceivedSykmelding skal validere ok") {
             val receivedSykmelding: ReceivedSykmelding = objectMapper.readValue(
                 ReceivedSykmelding::class.java.getResourceAsStream("/gyldig-receivedsykmelding-minimal.json")
                     .readBytes().toString(Charsets.UTF_8)
