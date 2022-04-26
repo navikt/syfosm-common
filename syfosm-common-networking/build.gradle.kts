@@ -1,7 +1,6 @@
-val coroutinesVersion = "1.5.1"
-val ktorVersion = "1.6.6"
-val logbackVersion = "1.2.7"
-val logstashEncoderVersion = "7.0.1"
+val coroutinesVersion = "1.6.1"
+val logbackVersion = "1.2.11"
+val logstashEncoderVersion = "7.1.1"
 
 
 plugins {
@@ -12,7 +11,6 @@ plugins {
 dependencies {
     implementation(project(":syfosm-common-metrics"))
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
-    implementation("io.ktor:ktor-client-apache:$ktorVersion")
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
     implementation("net.logstash.logback:logstash-logback-encoder:$logstashEncoderVersion")
 }

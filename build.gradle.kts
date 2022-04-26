@@ -1,8 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 val kluentVersion = "1.68"
-val jacksonVersion = "2.13.1"
-val kotlinVersion = "1.6.0"
+val kotlinVersion = "1.6.20"
 val kotestVersion = "5.1.0"
 
 repositories {
@@ -10,7 +9,7 @@ repositories {
 }
 
 plugins {
-    kotlin("jvm") version "1.6.0"
+    kotlin("jvm") version "1.6.20"
 }
 
 allprojects {
