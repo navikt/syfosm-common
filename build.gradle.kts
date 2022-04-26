@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 val kluentVersion = "1.68"
 val kotlinVersion = "1.6.20"
-val kotestVersion = "5.1.0"
+val kotestVersion = "5.2.3"
 
 repositories {
     mavenCentral()
