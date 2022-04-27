@@ -1,4 +1,4 @@
-val ibmMqVersion = "9.2.4.0"
+val ibmMqVersion = "9.2.5.0"
 
 plugins {
     id("java")

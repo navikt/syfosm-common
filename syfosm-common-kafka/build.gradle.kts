@@ -1,4 +1,4 @@
-val kafkaVersion = "2.8.0"
+val kafkaVersion = "3.1.0"
 
 plugins {
     id("java")
@@ -8,7 +8,7 @@ plugins {
 dependencies {
     api("org.apache.kafka:kafka_2.12:$kafkaVersion")
     api("org.apache.kafka:kafka-streams:$kafkaVersion")
-    api("io.netty:netty-codec:4.1.68.Final")
+    api("io.netty:netty-codec:4.1.76.Final")
 }
 
 publishing {
