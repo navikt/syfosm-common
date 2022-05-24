@@ -1,12 +1,9 @@
 package no.nav.syfo.kafka.aiven
 
-import no.nav.syfo.kafka.toConsumerConfig
 import org.apache.kafka.clients.CommonClientConfigs
-import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.apache.kafka.clients.producer.ProducerConfig
 import org.apache.kafka.common.config.SslConfigs
-import org.apache.kafka.common.security.auth.SecurityProtocol
-import java.util.*
+import java.util.Properties
 
 
 class KafkaUtils {
