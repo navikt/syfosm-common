@@ -123,7 +123,7 @@ data class ErIkkeIArbeid(
 )
 
 data class MeldingTilNAV(
-    val bistandUmiddelbart: Boolean,
+    val bistandUmiddelbart: Boolean?,
     val beskrivBistand: String?
 )
 
