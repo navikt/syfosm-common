@@ -13,7 +13,7 @@ data class JuridiskVurdering(
     val juridiskHenvisning: JuridiskHenvisning,
     val sporing: Map<String, String>,
     val input: Map<String, Any>,
-    val tidsstempel: LocalDateTime,
+    val tidsstempel: LocalDateTime?,
     val utfall: JuridiskUtfall
 )
 
