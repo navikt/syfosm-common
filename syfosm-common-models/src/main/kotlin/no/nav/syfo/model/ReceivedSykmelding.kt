@@ -20,6 +20,7 @@ data class ReceivedSykmelding(
     val merknader: List<Merknad>?,
     val partnerreferanse: String?,
     val vedlegg: List<String>?,
+    val utenlandskSykmelding: UtenlandskSykmelding?,
     /**
      * Full fellesformat as a XML payload, this is only used for infotrygd compat and should be removed in thefuture
      */
