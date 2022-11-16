@@ -1,4 +1,6 @@
-val cxfVersion = "3.4.5"
+val cxfVersion = "3.5.4"
+val commonsCollectionsVersion = "3.2.2"
+val bcprovJdk15onVersion = "1.70"
 
 plugins {
     id("java")
@@ -9,9 +11,11 @@ dependencies {
     api("org.apache.cxf:cxf-rt-frontend-jaxws:$cxfVersion")
     api("org.apache.cxf:cxf-rt-features-logging:$cxfVersion")
     api("org.apache.cxf:cxf-rt-transports-http:$cxfVersion")
-    api("org.apache.cxf:cxf-rt-ws-security:$cxfVersion")
-    api("commons-collections:commons-collections:3.2.2")
-    api("org.bouncycastle:bcprov-jdk15on:1.70")
+    api("org.apache.cxf:cxf-rt-ws-security:$cxfVersion") {
+        exclude(group = "org.apache.velocity", module = "velocity")
+    }
+    api("commons-collections:commons-collections:$commonsCollectionsVersion")
+    api("org.bouncycastle:bcprov-jdk15on:$bcprovJdk15onVersion")
 }
 
 publishing {
