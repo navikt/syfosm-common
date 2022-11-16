@@ -6,10 +6,24 @@ Common library for team sykmeldings apps.
 ## syfosm-common-diagnosis-codes
 See https://github.com/navikt/syfodiagnosecodegeneratorjson
 
+#### Requirements
+
+* JDK 17
+* 
+#### Build and run tests
+To build locally and run the integration tests you can simply run 
+``` bash
+./gradlew clean build
+``` 
+or on windows
+`gradlew.bat clean build`
+
 ### Upgrading the gradle wrapper
 Find the newest version of gradle here: https://gradle.org/releases/ Then run this command:
 
-```./gradlew wrapper --gradle-version $gradleVersjon```
+``` bash
+./gradlew wrapper --gradle-version $gradleVersjon
+```
 
 ### Contact
 
