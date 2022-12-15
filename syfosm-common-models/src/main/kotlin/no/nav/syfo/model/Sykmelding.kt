@@ -158,7 +158,7 @@ data class AvsenderSystem(
 )
 
 data class SporsmalSvar(
-    val sporsmal: String?,
+    val sporsmal: String,
     val svar: String,
     val restriksjoner: List<SvarRestriksjon>
 )
