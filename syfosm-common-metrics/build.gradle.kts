@@ -1,4 +1,4 @@
-val prometheusVersion = "0.15.0"
+val prometheusVersion = "0.16.0"
 
 plugins {
     id("java")
