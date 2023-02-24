@@ -1,6 +1,6 @@
 val coroutinesVersion = "1.6.4"
 val logbackVersion = "1.4.5"
-val logstashEncoderVersion = "7.2"
+val logstashEncoderVersion = "7.3"
 
 
 plugins {
