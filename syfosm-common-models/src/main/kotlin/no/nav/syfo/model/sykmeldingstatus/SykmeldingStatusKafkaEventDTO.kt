@@ -7,5 +7,6 @@ data class SykmeldingStatusKafkaEventDTO(
     val timestamp: OffsetDateTime,
     val statusEvent: String,
     val arbeidsgiver: ArbeidsgiverStatusDTO? = null,
-    val sporsmals: List<SporsmalOgSvarDTO>? = null
+    val sporsmals: List<SporsmalOgSvarDTO>? = null,
+    val erSvarOppdatering: Boolean? = null,
 )
