@@ -1,6 +1,6 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-val kluentVersion = "1.72"
+val kluentVersion = "1.73"
 val kotlinVersion = "1.8.21"
 val kotestVersion = "5.6.1"
 
