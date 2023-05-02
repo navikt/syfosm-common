@@ -3,6 +3,8 @@
 # syfosm-common
 Common library for team sykmeldings apps. 
 
+Check Github releases to find the latest release version Check Github releases to find the latest release version
+
 ## syfosm-common-diagnosis-codes
 See https://github.com/navikt/syfodiagnosecodegeneratorjson
 
