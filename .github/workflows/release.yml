@@ -28,7 +28,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
       - name: test and build
-        run: ./gradlew -Pversion=${{ env.NEW_VERSION }} . build
+        run: ./gradlew -Pversion=${{ env.NEW_VERSION }} build
       - name: upload artifact
         run: ./gradlew -Pversion=${{ env.NEW_VERSION }} publish
         env:
