@@ -1,4 +1,4 @@
-val cxfVersion = "3.5.5"
+val cxfVersion = "4.0.1"
 val commonsCollectionsVersion = "3.2.2"
 val bcprovJdk15onVersion = "1.70"
 
