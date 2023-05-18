@@ -1,5 +1,5 @@
 val ktorVersion = "2.3.0"
-val jacksonVersion = "2.15.0"
+val jacksonVersion = "2.15.1"
 
 
 repositories {
