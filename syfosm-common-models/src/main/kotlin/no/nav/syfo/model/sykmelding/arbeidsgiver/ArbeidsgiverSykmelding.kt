@@ -20,5 +20,6 @@ data class ArbeidsgiverSykmelding(
     val papirsykmelding: Boolean,
     val harRedusertArbeidsgiverperiode: Boolean,
     val merknader: List<Merknad>?,
-    val utenlandskSykmelding: UtenlandskSykmeldingAGDTO?
+    val utenlandskSykmelding: UtenlandskSykmeldingAGDTO?,
+    val signaturDato: OffsetDateTime?,
 )
