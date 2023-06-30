@@ -1,4 +1,4 @@
-val ktorVersion = "2.3.1"
+val ktorVersion = "2.3.2"
 val jacksonVersion = "2.15.2"
 
 
