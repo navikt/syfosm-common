@@ -8,12 +8,12 @@ import java.util.Properties
 
 class KafkaUtils {
     companion object {
-        fun getAivenKafkaConfig() : Properties {
+        fun getAivenKafkaConfig(clientId: String) : Properties {
             return Properties().also {
                 val kafkaEnv = KafkaEnvironment()
                 it[CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG] = kafkaEnv.KAFKA_BROKERS
                 it[CommonClientConfigs.SECURITY_PROTOCOL_CONFIG] = "SSL"
-                it[CommonClientConfigs.CLIENT_ID_CONFIG] = kafkaEnv.KAFKA_CLIENT_ID
+                it[CommonClientConfigs.CLIENT_ID_CONFIG] = "${kafkaEnv.KAFKA_CLIENT_ID}-$clientId"
                 it[SslConfigs.SSL_TRUSTSTORE_TYPE_CONFIG] = "jks"
                 it[SslConfigs.SSL_KEYSTORE_TYPE_CONFIG] = "PKCS12"
                 it[SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG] = kafkaEnv.KAFKA_TRUSTSTORE_PATH
