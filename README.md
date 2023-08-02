@@ -1,9 +1,9 @@
 [![Build status](https://github.com/navikt/syfosm-common/workflows/Publish%20artifacts/badge.svg)](https://github.com/navikt/syfosm-common/workflows/Publish%20artifacts/badge.svg)
 
 # syfosm-common
-Common library for team sykmeldings apps. 
+Common library for team sykmelding(navikt/teamsykmelding) apps. 
 
-Check Github releases to find the latest release version Check Github releases to find the latest release version
+Check GitHub releases to find the latest release version Check GitHub releases to find the latest release version
 
 ## syfosm-common-diagnosis-codes
 See https://github.com/navikt/syfodiagnosecodegeneratorjson
