@@ -1,5 +1,5 @@
 val coroutinesVersion = "1.7.3"
-val logbackVersion = "1.4.10"
+val logbackVersion = "1.4.11"
 val logstashEncoderVersion = "7.4"
 
 
