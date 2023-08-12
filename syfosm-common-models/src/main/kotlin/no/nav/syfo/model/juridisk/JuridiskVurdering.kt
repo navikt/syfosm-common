@@ -1,7 +1,7 @@
 package no.nav.syfo.model.juridisk
 
 import java.time.LocalDate
-import java.time.LocalDateTime
+import java.time.ZonedDateTime
 
 data class JuridiskVurdering(
     val id: String,
@@ -13,7 +13,7 @@ data class JuridiskVurdering(
     val juridiskHenvisning: JuridiskHenvisning,
     val sporing: Map<String, String>,
     val input: Map<String, Any>,
-    val tidsstempel: LocalDateTime?,
+    val tidsstempel: ZonedDateTime,
     val utfall: JuridiskUtfall
 )
 
