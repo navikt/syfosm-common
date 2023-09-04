@@ -1,6 +1,6 @@
 package no.nav.syfo.model.sykmeldingstatus
 
-import no.nav.syfo.model.sykmelding.model.TilknyttetSkjaeringspunkt
+import no.nav.syfo.model.sykmelding.model.TidligereArbeidsgiverDTO
 import java.time.OffsetDateTime
 
 data class SykmeldingStatusKafkaEventDTO(
@@ -10,5 +10,5 @@ data class SykmeldingStatusKafkaEventDTO(
     val arbeidsgiver: ArbeidsgiverStatusDTO? = null,
     val sporsmals: List<SporsmalOgSvarDTO>? = null,
     val erSvarOppdatering: Boolean? = null,
-    val tilknyttetSkjaeringspunkt: TilknyttetSkjaeringspunkt? = null,
+    val tidligereArbeidsgiver: TidligereArbeidsgiverDTO? = null,
 )
