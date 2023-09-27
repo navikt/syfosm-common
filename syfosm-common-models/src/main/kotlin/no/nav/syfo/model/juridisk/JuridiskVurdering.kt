@@ -48,7 +48,7 @@ enum class Lovverk(
     HELSEPERSONELLOVEN(
       navn = "Lov om helsepersonell m.v.",
         kortnavn = "Helsepersonelloven",
-        lovverksversjon = LocalDate.of(25, 3, 2022)
+        lovverksversjon = LocalDate.of(2022, 1, 1)
     )
 }
 
