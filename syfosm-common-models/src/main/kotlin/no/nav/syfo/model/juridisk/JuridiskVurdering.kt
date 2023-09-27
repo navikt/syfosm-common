@@ -26,7 +26,8 @@ data class JuridiskHenvisning(
     val paragraf: String,
     val ledd: Int?,
     val punktum: Int?,
-    val bokstav: String?
+    val bokstav: String?,
+    val rundskriv: String? = null
 )
 
 enum class Lovverk(
@@ -43,6 +44,11 @@ enum class Lovverk(
         navn = "Lov om behandlingsmåten i forvaltningssaker",
         kortnavn = "Forvaltningsloven",
         lovverksversjon = LocalDate.of(2022, 1, 1)
+    ),
+    HELSEPERSONELLOVEN(
+      navn = "Lov om helsepersonell m.v.",
+        kortnavn = "Helsepersonelloven",
+        lovverksversjon = LocalDate.of(25, 3, 2022)
     )
 }
 
