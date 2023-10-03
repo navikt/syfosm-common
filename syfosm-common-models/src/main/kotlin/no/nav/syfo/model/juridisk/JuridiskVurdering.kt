@@ -27,7 +27,6 @@ data class JuridiskHenvisning(
     val ledd: Int?,
     val punktum: Int?,
     val bokstav: String?,
-    val rundskriv: String? = null
 )
 
 enum class Lovverk(
