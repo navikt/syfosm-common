@@ -3,7 +3,6 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 val kluentVersion = "1.73"
 val kotlinVersion = "1.9.20"
 val kotestVersion = "5.7.2"
-val javaVersion = JavaVersion.VERSION_17
 
 
 repositories {
@@ -38,20 +37,24 @@ subprojects {
     }
 
     compileKotlin {
-        kotlinOptions.jvmTarget = javaVersion.toString()
+        kotlinOptions.jvmTarget = JavaVersion.VERSION_17
     }
+
     compileTestKotlin {
-        kotlinOptions.jvmTarget = javaVersion.toString()
+        kotlinOptions.jvmTarget = JavaVersion.VERSION_17
     }
 
 
-    test{
-        useJUnitPlatform()
+    test {
+        useJUnitPlatform {}
         testLogging {
-            events("passed", "skipped", "failed")
+            events("skipped", "failed")
+            showStackTraces = true
+            exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
         }
     }
 }
+
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
 }
