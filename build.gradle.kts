@@ -32,6 +32,7 @@ subprojects {
 
         testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
         testImplementation("org.amshove.kluent:kluent:$kluentVersion")
+        testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     }
 
     tasks {
