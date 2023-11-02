@@ -36,22 +36,23 @@ subprojects {
         testImplementation("org.amshove.kluent:kluent:$kluentVersion")
     }
 
-    task {
+    tasks {
 
-    compileKotlin {
-        kotlinOptions.jvmTarget = JavaVersion.VERSION_17
-    }
+        compileKotlin {
+            kotlinOptions.jvmTarget = JavaVersion.VERSION_17.toString()
+        }
 
-    compileTestKotlin {
-        kotlinOptions.jvmTarget = JavaVersion.VERSION_17
-    }
+        compileTestKotlin {
+            kotlinOptions.jvmTarget = JavaVersion.VERSION_17.toString()
+        }
 
-    test {
-        useJUnitPlatform {}
-        testLogging {
-            events("skipped", "failed")
-            showStackTraces = true
-            exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
+        test {
+            useJUnitPlatform {}
+            testLogging {
+                events("skipped", "failed")
+                showStackTraces = true
+                exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
+            }
         }
     }
 }
