@@ -1,9 +1,7 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 val kluentVersion = "1.73"
 val kotlinVersion = "1.9.20"
 val kotestVersion = "5.7.2"
-
+val javaVersion = JavaVersion.VERSION_17
 
 repositories {
     mavenCentral()
@@ -39,11 +37,11 @@ subprojects {
     tasks {
 
         compileKotlin {
-            kotlinOptions.jvmTarget = JavaVersion.VERSION_17.toString()
+            kotlinOptions.jvmTarget = javaVersion.toString()
         }
 
         compileTestKotlin {
-            kotlinOptions.jvmTarget = JavaVersion.VERSION_17.toString()
+            kotlinOptions.jvmTarget = javaVersion.toString()
         }
 
         test {
