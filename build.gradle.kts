@@ -36,6 +36,8 @@ subprojects {
         testImplementation("org.amshove.kluent:kluent:$kluentVersion")
     }
 
+    task {
+
     compileKotlin {
         kotlinOptions.jvmTarget = JavaVersion.VERSION_17
     }
@@ -43,7 +45,6 @@ subprojects {
     compileTestKotlin {
         kotlinOptions.jvmTarget = JavaVersion.VERSION_17
     }
-
 
     test {
         useJUnitPlatform {}
