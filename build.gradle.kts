@@ -1,6 +1,6 @@
 val kluentVersion = "1.73"
 val kotlinVersion = "1.9.20"
-val kotestVersion = "5.7.2"
+val kotestVersion = "5.8.0"
 val javaVersion = JavaVersion.VERSION_17
 
 repositories {
