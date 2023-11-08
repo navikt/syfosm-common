@@ -2,7 +2,6 @@ package no.nav.syfo.helpers
 
 import kotlinx.coroutines.delay
 import net.logstash.logback.argument.StructuredArguments.keyValue
-import no.nav.syfo.metrics.NETWORK_CALL_SUMMARY
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import java.io.IOException
@@ -19,7 +18,7 @@ suspend inline fun <reified T> retry(
 ): T {
     for (interval in retryIntervals) {
         try {
-            return timed(callName) { block() }
+            return  block()
         } catch (e: Throwable) {
             if (!isCausedBy(e, exceptionCausedByDepth, legalExceptions)) {
                 throw e
@@ -28,11 +27,7 @@ suspend inline fun <reified T> retry(
         }
         delay(interval)
     }
-    return timed(callName) { block() }
-}
-
-suspend inline fun <reified T> timed(callName: String, crossinline block: suspend() -> T) = NETWORK_CALL_SUMMARY.labels(callName).startTimer().use {
-    block()
+    return  block()
 }
 
 fun isCausedBy(throwable: Throwable, depth: Int, legalExceptions: Array<out KClass<out Throwable>>): Boolean {
