@@ -1,6 +1,6 @@
 val kluentVersion = "1.73"
 val kotlinVersion = "1.9.20"
-val kotestVersion = "5.8.0"
+val junitJupiterVersion = "5.10.0"
 val javaVersion = JavaVersion.VERSION_17
 
 repositories {
@@ -30,7 +30,8 @@ subprojects {
     dependencies {
         implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
 
-        testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
+        testImplementation("org.junit.jupiter:junit-jupiter:$junitJupiterVersion")
+
         testImplementation("org.amshove.kluent:kluent:$kluentVersion")
         testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     }
