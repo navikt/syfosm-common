@@ -1,5 +1,5 @@
 val kluentVersion = "1.73"
-val kotlinVersion = "1.9.20"
+val kotlinVersion = "1.9.21"
 val junitJupiterVersion = "5.10.1"
 val javaVersion = JavaVersion.VERSION_17
 
