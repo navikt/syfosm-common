@@ -10,7 +10,7 @@ See https://github.com/navikt/syfodiagnosecodegeneratorjson
 
 #### Requirements
 
-* JDK 17
+* JDK 21
 
 #### Build and run tests
 To build locally and run the integration tests you can simply run 
